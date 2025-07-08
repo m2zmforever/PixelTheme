@@ -1,230 +1,517 @@
-:root {
-  --main-color: #ff2a2a;
-  --title-color: #ff5555;
-  --important-color: #ff1a1a;
-  --highlight-color: #ff4040;
-  --border-color: #8b0000;
-  --background-color: rgba(10, 0, 0, 0.92);
-  --highlight-background-color: rgba(50, 0, 0, 0.8);
-  --disable-background-color: #5a0000;
-  --second-color: #d10000;
-  --glow-color: rgba(255, 40, 40, 0.6);
-}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kırmızı Karanlık Tema</title>
+    <style>
+        :root {
+            --main-color: #ff2a2a;
+            --title-color: #ff5555;
+            --important-color: #ff1a1a;
+            --highlight-color: #ff4040;
+            --border-color: #8b0000;
+            --background-color: rgba(10, 0, 0, 0.92);
+            --highlight-background-color: rgba(50, 0, 0, 0.8);
+            --disable-background-color: #5a0000;
+            --second-color: #d10000;
+            --glow-color: rgba(255, 40, 40, 0.6);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a0000 0%, #0a0000 100%);
+            color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+        }
+        
+        /* Sol panel - Kanallar */
+        .channels-panel {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        .channels-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .channels-header h2 {
+            color: var(--title-color);
+            margin: 0;
+            flex-grow: 1;
+            text-shadow: 0 0 8px var(--glow-color);
+            letter-spacing: 1px;
+        }
+        
+        .channel-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .channelbtn {
+            padding: 12px 15px;
+            border-radius: 8px;
+            background: var(--background-color);
+            border: 1px solid transparent;
+            color: var(--main-color);
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .channelbtn:hover {
+            background: var(--highlight-background-color);
+            border-color: var(--border-color);
+            transform: translateX(5px);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        
+        .channelbtn:hover::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--highlight-color);
+            animation: channelGlow 1.5s infinite;
+        }
+        
+        .channelbtn.selected {
+            background: linear-gradient(90deg, rgba(139, 0, 0, 0.3) 0%, var(--highlight-background-color) 100%);
+            border-color: var(--border-color);
+            box-shadow: 0 0 15px var(--glow-color);
+            transform: translateX(0);
+        }
+        
+        .channelbtn.selected::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: var(--highlight-color);
+        }
+        
+        /* Ana içerik alanı */
+        .main-content {
+            background: var(--background-color);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.4);
+            animation: slideIn 0.8s ease-out;
+        }
+        
+        .chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .chat-header h2 {
+            color: var(--title-color);
+            margin: 0;
+            flex-grow: 1;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px var(--glow-color);
+        }
+        
+        .online-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .online-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #00ff00;
+            box-shadow: 0 0 8px #00ff00;
+            animation: pulse 1.5s infinite;
+        }
+        
+        /* Mesajlar */
+        .chat-messages {
+            height: 500px;
+            overflow-y: auto;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(20, 0, 0, 0.6);
+            border-left: 3px solid var(--border-color);
+            animation: messageAppear 0.4s ease-out;
+            transition: transform 0.3s ease;
+        }
+        
+        .message:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+        }
+        
+        .message-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--main-color), #8b0000);
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .username {
+            font-weight: bold;
+            color: var(--main-color);
+            margin-right: 10px;
+        }
+        
+        .timestamp {
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+        
+        .message-content {
+            line-height: 1.5;
+        }
+        
+        /* Mesaj giriş alanı */
+        .message-input-area {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .message-input {
+            flex-grow: 1;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(10, 0, 0, 0.7);
+            border: 1px solid var(--border-color);
+            color: white;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .message-input:focus {
+            outline: none;
+            border-color: var(--highlight-color);
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+        
+        .send-button {
+            padding: 0 25px;
+            background: linear-gradient(135deg, var(--main-color), #8b0000);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .send-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 40, 40, 0.4);
+        }
+        
+        .send-button:active {
+            transform: translateY(1px);
+        }
+        
+        .send-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+        }
+        
+        .send-button:hover::after {
+            transform: rotate(30deg) translate(20%, 20%);
+        }
+        
+        /* Alt bilgi */
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            border-top: 1px solid var(--border-color);
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* Animasyonlar */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes messageAppear {
+            from { 
+                opacity: 0;
+                transform: translateX(-10px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+        }
+        
+        @keyframes channelGlow {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(20, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--main-color), #8b0000);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--highlight-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sol panel - Kanallar -->
+        <div class="channels-panel">
+            <div class="channels-header">
+                <h2>Kanallar</h2>
+            </div>
+            <div class="channel-list">
+                <div class="channelbtn selected"># genel-sohbet</div>
+                <div class="channelbtn"># yardım-merkezi</div>
+                <div class="channelbtn"># oyun-sohbet</div>
+                <div class="channelbtn"># müzik</div>
+                <div class="channelbtn"># film-öneri</div>
+                <div class="channelbtn"># teknoloji</div>
+                <div class="channelbtn"># tasarım</div>
+                <div class="channelbtn"># geliştirme</div>
+            </div>
+        </div>
+        
+        <!-- Ana içerik alanı -->
+        <div class="main-content">
+            <div class="chat-header">
+                <h2># genel-sohbet</h2>
+                <div class="online-indicator">
+                    <div class="online-dot"></div>
+                    <span>Çevrimiçi: 24</span>
+                </div>
+            </div>
+            
+            <div class="chat-messages">
+                <!-- Mesajlar -->
+                <div class="message">
+                    <div class="message-header">
+                        <div class="user-avatar">A</div>
+                        <div class="username">AhmetYılmaz</div>
+                        <div class="timestamp">Bugün 14:32</div>
+                    </div>
+                    <div class="message-content">
+                        Merhaba arkadaşlar! Bu yeni tema gerçekten harika görünüyor. Özellikle animasyonlar çok hoş.
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <div class="message-header">
+                        <div class="user-avatar">E</div>
+                        <div class="username">ElifKaya</div>
+                        <div class="timestamp">Bugün 14:35</div>
+                    </div>
+                    <div class="message-content">
+                        Katılıyorum! Kırmızı ve koyu tonların kombinasyonu gerçekten göz yormuyor. Gece modunda kullanım için mükemmel.
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <div class="message-header">
+                        <div class="user-avatar">M</div>
+                        <div class="username">MehmetDemir</div>
+                        <div class="timestamp">Bugün 14:40</div>
+                    </div>
+                    <div class="message-content">
+                        Animasyonlar çok başarılı olmuş. Butonlardaki ve kanallardaki hover efektleri kullanıcı deneyimini gerçekten geliştiriyor.
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <div class="message-header">
+                        <div class="user-avatar">S</div>
+                        <div class="username">SenaAksoy</div>
+                        <div class="timestamp">Bugün 14:45</div>
+                    </div>
+                    <div class="message-content">
+                        Mesajların geliş animasyonu da çok hoş. Yeni mesaj geldiğinde dikkat çekici ama rahatsız etmeyen bir efekt.
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <div class="message-header">
+                        <div class="user-avatar">C</div>
+                        <div class="username">CanYıldız</div>
+                        <div class="timestamp">Bugün 14:50</div>
+                    </div>
+                    <div class="message-content">
+                        Scrollbar'ın kırmızı degradeli olması da tema ile mükemmel uyum sağlıyor. Detaylara verilen önem belli oluyor.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message-input-area">
+                <input type="text" class="message-input" placeholder="Buraya mesajınızı yazın...">
+                <button class="send-button">Gönder</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        © 2023 Kırmızı Karanlık Tema | Animasyonlu ve Geliştirilmiş Versiyon
+    </div>
 
-/* Genel Stiller */
-.actionbuttons,
-.channelbtn,
-.tab-list-item,
-kbd,
-td,
-th {
-  color: var(--main-color);
-  background-color: var(--background-color);
-  transition: all 0.3s ease;
-}
-
-/* Animasyonlu Elementler */
-.actionbuttons:hover,
-.channelbtn:hover,
-.tab-list-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px var(--glow-color);
-}
-
-.actionbuttons:active,
-.channelbtn:active {
-  transform: translateY(1px);
-}
-
-/* Kanallar */
-.channelbtn {
-  position: relative;
-  overflow: hidden;
-  padding: 12px 15px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  animation: fadeIn 0.8s ease-out;
-}
-
-.channelbtn:hover {
-  background: var(--highlight-background-color);
-  border-color: var(--border-color);
-  transform: translateX(5px);
-}
-
-.channelbtn:hover::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 3px;
-  background: var(--highlight-color);
-  animation: channelGlow 1.5s infinite;
-}
-
-.channelbtn.selected {
-  background: linear-gradient(90deg, rgba(139, 0, 0, 0.3) 0%, var(--highlight-background-color) 100%);
-  border-color: var(--border-color);
-  box-shadow: 0 0 15px var(--glow-color);
-}
-
-/* Mesajlar */
-.chatmsg {
-  animation: messageAppear 0.4s ease-out;
-  transition: transform 0.3s ease;
-}
-
-.chatmsg:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
-}
-
-/* Butonlar */
-button {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--main-color), #8b0000);
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 40, 40, 0.4);
-}
-
-button::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: rgba(255, 255, 255, 0.1);
-  transform: rotate(30deg);
-  transition: all 0.6s ease;
-}
-
-button:hover::after {
-  transform: rotate(30deg) translate(20%, 20%);
-}
-
-/* Online Göstergesi */
-.onlinebox::before {
-  content: '';
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #00ff00;
-  box-shadow: 0 0 8px #00ff00;
-  animation: pulse 1.5s infinite;
-  margin-right: 8px;
-}
-
-/* Başlıklar */
-h2, h3, h4 {
-  text-shadow: 0 0 10px var(--glow-color);
-  animation: fadeIn 1s ease-out;
-}
-
-/* Modal ve Pencereler */
-.modal, .window {
-  animation: slideIn 0.5s ease-out;
-  box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(20, 0, 0, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--main-color), #8b0000);
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--highlight-color);
-}
-
-/* Animasyon Tanımları */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { 
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to { 
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes messageAppear {
-  from { 
-    opacity: 0;
-    transform: translateX(-10px);
-  }
-  to { 
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
-}
-
-@keyframes channelGlow {
-  0% { opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { opacity: 0.3; }
-}
-
-/* Özel Efektler */
-.Alert, .modal {
-  background-image: radial-gradient(ellipse at center, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 70%);
-}
-
-.actionbuttons, .modal-topbtn, .win-topbtn {
-  border-image: linear-gradient(
-    to right top,
-    var(--main-color) 0%,
-    var(--main-color) 15%,
-    transparent 50%
-  ) 1;
-}
-
-/* Hover Efektleri */
-.chn:hover, .chntype:hover, .contextmenu > div:hover {
-  transform: scale(1.02);
-  transition: transform 0.2s ease;
-}
-
-/* Seçili Öğeler */
-.tab-list-item.active {
-  background: linear-gradient(90deg, var(--highlight-background-color) 0%, transparent 100%);
-  border-left: 3px solid var(--highlight-color);
-}
-
-/* Kapalı/Gri Öğeler */
-.react-toggle-track {
-  transition: background-color 0.4s ease;
-}
-
-.react-toggle--checked .react-toggle-track {
-  background-color: var(--highlight-color) !important;
-}
+    <script>
+        // Buton animasyonları için
+        document.querySelectorAll('.send-button, .channelbtn').forEach(button => {
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'translateY(2px)';
+            });
+            
+            button.addEventListener('mouseup', function() {
+                this.style.transform = '';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+        
+        // Mesaj gönderme animasyonu
+        document.querySelector('.send-button').addEventListener('click', function() {
+            const input = document.querySelector('.message-input');
+            const message = input.value.trim();
+            
+            if (message) {
+                const messagesContainer = document.querySelector('.chat-messages');
+                
+                // Yeni mesaj oluştur
+                const newMessage = document.createElement('div');
+                newMessage.className = 'message';
+                newMessage.innerHTML = `
+                    <div class="message-header">
+                        <div class="user-avatar">S</div>
+                        <div class="username">Siz</div>
+                        <div class="timestamp">Şimdi</div>
+                    </div>
+                    <div class="message-content">${message}</div>
+                `;
+                
+                // Mesajı ekle
+                messagesContainer.appendChild(newMessage);
+                
+                // Animasyon için başlangıç durumu
+                newMessage.style.opacity = '0';
+                newMessage.style.transform = 'translateX(10px)';
+                
+                // Animasyonu tetikle
+                setTimeout(() => {
+                    newMessage.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    newMessage.style.opacity = '1';
+                    newMessage.style.transform = 'translateX(0)';
+                }, 10);
+                
+                // Input'u temizle ve scroll'u en alta indir
+                input.value = '';
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        });
+        
+        // Kanallar arasında geçiş
+        document.querySelectorAll('.channelbtn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.channelbtn').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                // Kanal adını güncelle
+                document.querySelector('.chat-header h2').textContent = this.textContent;
+            });
+        });
+    </script>
+</body>
+</html>
