@@ -1,4 +1,4 @@
-Theme for pixelplanet.fun
+Theme for pixelgames.
 
 **Installation**<br/>
 1. [Download Tampermonkey Stable](https://www.tampermonkey.net)
@@ -7,3 +7,9 @@ Theme for pixelplanet.fun
 **Usage**<br/>
   Theme starts automatically<br/>
   If you want to remove the theme just turn off the userscript
+
+**Authers**
+
+Main Auther: [Darkness](https://github.com/TouchedByDarkness) 
+
+
