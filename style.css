@@ -4,21 +4,14 @@
   --important-color: #ff1a1a;
   --highlight-color: #ff4040;
   --border-color: #8b0000;
-  --background-color: rgba(0, 0, 0, 0.85);
-  --highlight-background-color: rgba(64, 64, 64, 0.85);
-  --disable-background-color: grey;
+  --background-color: rgba(10, 0, 0, 0.92);
+  --highlight-background-color: rgba(50, 0, 0, 0.8);
+  --disable-background-color: #5a0000;
+  --second-color: #d10000;
+  --glow-color: rgba(255, 40, 40, 0.6);
 }
 
-/* Buton Boyutlarını Küçültme */
-.actionbuttons,
-.channelbtn,
-.tab-list-item,
-button {
-  padding: 6px 12px;
-  font-size: 0.9rem;
-}
-
-/* Önceki Daha Minimal Stil */
+/* Genel Stiller */
 .actionbuttons,
 .channelbtn,
 .tab-list-item,
@@ -27,124 +20,211 @@ td,
 th {
   color: var(--main-color);
   background-color: var(--background-color);
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-.Alert,
-.chatlink,
-.chatname,
-.modal * {
-  text-shadow: 0 0 1px #000;
-}
-
-.channelbtn:hover,
-.chatmsg:hover,
-.chn.selected,
-.chn:hover,
-.chntype.selected,
-.chntype:hover,
-.contextmenu > div:hover,
-.coorbox:hover,
-.modal-topbtn:hover,
-.onlinebox:hover,
-.tab-list-item:not(.active):hover,
-.win-title:hover,
-.win-topbtn:hover,
-tr:nth-child(2n) {
-  background-color: var(--highlight-background-color);
-}
-
-.actionbuttons,
-.modal {
-  border-radius: 21px;
-}
-
-kbd {
-  border-color: var(--border-color);
-  -webkit-box-shadow: none;
-}
-
-.chatts {
-  color: var(--important-color);
-}
-
-h2,
-h3,
-h4 {
-  color: var(--title-color);
-}
-
-/* Buton Hover Efektleri */
+/* Animasyonlu Elementler */
 .actionbuttons:hover,
 .channelbtn:hover,
-.tab-list-item:hover,
-button:hover {
-  background-color: var(--highlight-background-color);
-  transform: translateY(-1px);
+.tab-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--glow-color);
 }
 
 .actionbuttons:active,
-.channelbtn:active,
-.tab-list-item:active,
-button:active {
+.channelbtn:active {
   transform: translateY(1px);
 }
 
-/* Daha Küçük Mesaj Alanı */
+/* Kanallar */
+.channelbtn {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.channelbtn:hover {
+  background: var(--highlight-background-color);
+  border-color: var(--border-color);
+  transform: translateX(5px);
+}
+
+.channelbtn:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--highlight-color);
+  animation: channelGlow 1.5s infinite;
+}
+
+.channelbtn.selected {
+  background: linear-gradient(90deg, rgba(139, 0, 0, 0.3) 0%, var(--highlight-background-color) 100%);
+  border-color: var(--border-color);
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* Mesajlar */
 .chatmsg {
-  padding: 8px 12px;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
+  animation: messageAppear 0.4s ease-out;
+  transition: transform 0.3s ease;
 }
 
-/* Daha Küçük Input Alanları */
-input,
-select,
-textarea {
-  padding: 6px 10px;
-  font-size: 0.9rem;
+.chatmsg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
 }
 
-/* Daha Minimal Scrollbar */
+/* Butonlar */
+button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--main-color), #8b0000);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 40, 40, 0.4);
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+}
+
+button:hover::after {
+  transform: rotate(30deg) translate(20%, 20%);
+}
+
+/* Online Göstergesi */
+.onlinebox::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00ff00;
+  box-shadow: 0 0 8px #00ff00;
+  animation: pulse 1.5s infinite;
+  margin-right: 8px;
+}
+
+/* Başlıklar */
+h2, h3, h4 {
+  text-shadow: 0 0 10px var(--glow-color);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Modal ve Pencereler */
+.modal, .window {
+  animation: slideIn 0.5s ease-out;
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
-/* Animasyonlar (Daha Hafif) */
+::-webkit-scrollbar-track {
+  background: rgba(20, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--main-color), #8b0000);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight-color);
+}
+
+/* Animasyon Tanımları */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-.channelbtn,
-.chatmsg,
-.modal {
-  animation: fadeIn 0.3s ease-out;
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Online Göstergesi (Daha Küçük) */
-.onlinebox::before {
-  width: 8px;
-  height: 8px;
-  margin-right: 4px;
+@keyframes messageAppear {
+  from { 
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-/* Başlık Boyutları */
-h2 {
-  font-size: 1.3rem;
-}
-h3 {
-  font-size: 1.1rem;
-  margin: 4px 0;
-}
-h4 {
-  font-size: 1rem;
-  margin: 3px 0;
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
 }
 
-/* Daha Kompakt Tablolar */
-td, th {
-  padding: 4px 8px;
+@keyframes channelGlow {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Özel Efektler */
+.Alert, .modal {
+  background-image: radial-gradient(ellipse at center, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 70%);
+}
+
+.actionbuttons, .modal-topbtn, .win-topbtn {
+  border-image: linear-gradient(
+    to right top,
+    var(--main-color) 0%,
+    var(--main-color) 15%,
+    transparent 50%
+  ) 1;
+}
+
+/* Hover Efektleri */
+.chn:hover, .chntype:hover, .contextmenu > div:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+/* Seçili Öğeler */
+.tab-list-item.active {
+  background: linear-gradient(90deg, var(--highlight-background-color) 0%, transparent 100%);
+  border-left: 3px solid var(--highlight-color);
+}
+
+/* Kapalı/Gri Öğeler */
+.react-toggle-track {
+  transition: background-color 0.4s ease;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: var(--highlight-color) !important;
 }
