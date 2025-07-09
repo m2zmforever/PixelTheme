@@ -304,18 +304,6 @@ select {
     1;
   position: relative;
   overflow: hidden;
-  filter: none;
-  opacity: 1;
-  pointer-events: auto;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-button[disabled],
-button:disabled {
-  opacity: 0.5;
-  filter: grayscale(0.7) brightness(0.8);
-  pointer-events: none;
-  cursor: not-allowed;
 }
 
 button {
