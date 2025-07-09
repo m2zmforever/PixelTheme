@@ -1,93 +1,43 @@
-/* Modern ve şık bir görünüm için eklemeler */
-:root {
-  --main-color: #ff3b3b;
-  --title-color: #ff5e62;
-  --important-color: #ff5e62;
-  --highlight-color: #ff8a65;
-  --border-color: #b71c1c;
-  --background-color: rgba(24, 28, 36, 0.96);
-  --highlight-background-color: rgba(60, 60, 80, 0.92);
-  --disable-background-color: #444;
-  --shadow-color: rgba(0,0,0,0.25);
-  --glass-bg: rgba(40,40,60,0.7);
-  --frosted-glass: rgba(40,40,60,0.55);
-  --accent-glow: 0 0 32px 0 #ff3b3b44;
-}
-body {
-  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: linear-gradient(120deg, #23243a 0%, #3a1c2d 100%) fixed;
-  min-height: 100vh;
-  position: relative;
-}
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
-  background: radial-gradient(circle at 80% 20%, rgba(255,56,120,0.13) 0, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(120,200,255,0.10) 0, transparent 60%);
-  filter: blur(8px) brightness(1.08);
-  opacity: 0.7;
-}
 .actionbuttons,
 .channelbtn,
 .tab-list-item,
 kbd,
 td,
-th,
-button,
-input,
-select {
-  box-shadow: 0 2px 16px var(--shadow-color), 0 1.5px 0 var(--border-color), var(--accent-glow);
-  border-radius: 18px;
-  border: 1.5px solid var(--border-color);
-  background: linear-gradient(120deg, #23243a 60%, #3a1c2d 100%);
-  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+th {
+   color: var(--main-color);
+   background-color: var(--background-color);
 }
-.actionbuttons:hover,
+.Alert,
+.chatlink,
+.chatname,
+.modal * {
+   text-shadow: 0 0 1px #000;
+}
+:root {
+   --main-color: red;
+   --title-color: crimson;
+   --important-color: crimson;
+   --highlight-color: crimson;
+   --border-color: darkred;
+   --background-color: rgba(0, 0, 0, 0.85);
+   --highlight-background-color: rgba(64, 64, 64, 0.85);
+   --disable-background-color: grey;
+}
 .channelbtn:hover,
+.chatmsg:hover,
+.chn.selected,
+.chn:hover,
+.chntype.selected,
+.chntype:hover,
+.contextmenu > div:hover,
+.coorbox:hover,
+.modal-topbtn:hover,
+.onlinebox:hover,
 .tab-list-item:not(.active):hover,
-button:hover,
-input:hover,
-select:hover {
-  background: linear-gradient(90deg, var(--highlight-background-color) 60%, var(--main-color) 100%);
-  transform: scale(1.06) translateY(-2px);
-  box-shadow: 0 6px 24px var(--shadow-color), 0 2px 0 var(--main-color), 0 0 32px 0 #ff3b3b55;
-  filter: brightness(1.08);
-}
-.actionbuttons:active, .channelbtn:active, button:active {
-  transform: scale(0.98);
-  filter: brightness(0.93);
-}
-.modal, .popup, .window, .contextmenu, .channeldd {
-  background: var(--frosted-glass);
-  box-shadow: 0 8px 32px 0 #000a, 0 0 0 1.5px #fff1;
-  border-radius: 18px;
-  border: 1.5px solid rgba(255,255,255,0.10);
-  backdrop-filter: blur(16px) saturate(1.5);
-}
-h2, h3, h4 {
-  text-shadow: 0 2px 12px var(--shadow-color), 0 0 8px #ff3b3b22;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-::-webkit-scrollbar {
-  width: 12px;
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3a3a3a 60%, #ff3b3b 100%);
-  border-radius: 18px;
-  border: 2px solid #23232b;
-  box-shadow: 0 0 8px #ff3b3b44;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #555 60%, #ff8a65 100%);
-  box-shadow: 0 0 16px #ff8a6555;
-}
-.mention, .chatlink, .modallink:hover, .tab-list-item.active, a:hover {
-  text-shadow: 0 0 12px var(--highlight-color), 0 0 2px #fff;
-  filter: brightness(1.15);
+.win-title:hover,
+.win-topbtn:hover,
+tr:nth-child(2n) {
+   background-color: var(--highlight-background-color);
 }
 .actionbuttons,
 .modal {
@@ -306,4 +256,32 @@ a:hover {
 .coorbox:hover,
 .menu > div:hover {
    background-color: #363637;
+}
+::-webkit-scrollbar {
+   cursor: pointer;
+   width: 7.5px;
+   background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+   border-radius: 10px;
+   background: #414244;
+}
+::-webkit-scrollbar-thumb:hover {
+   background: grey;
+}
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: linear-gradient(120deg, #23243a 0%, #3a1c2d 60%, #2e1a47 100%) fixed,
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat fixed;
+  min-height: 100vh;
+  position: relative;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: inherit;
+  filter: blur(14px) brightness(1.10) saturate(1.15);
+  opacity: 0.75;
 }
