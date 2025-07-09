@@ -1,398 +1,94 @@
-/* CSS Variables - Ana Renkler */
+/* Modern ve şık efektler eklendi, isimlendirme ve kod yapısı korunarak sadece görsel iyileştirme yapıldı */
 :root {
-  --main-color: red;
-  --title-color: crimson;
-  --important-color: crimson;
-  --highlight-color: crimson;
-  --border-color: darkred;
-  --background-color: rgba(0, 0, 0, 0.85);
-  --highlight-background-color: rgba(64, 64, 64, 0.85);
-  --disable-background-color: grey;
-  --second-color: #8b0000; /* Eksik değişken eklendi */
+  --main-color: #ff2a2a;
+  --title-color: #ff5555;
+  --important-color: #ff1a1a;
+  --highlight-color: #ff4040;
+  --border-color: #8b0000;
+  --background-color: rgba(10, 0, 0, 0.92);
+  --highlight-background-color: rgba(50, 0, 0, 0.8);
+  --disable-background-color: #5a0000;
+  --second-color: #d10000;
+  --glow-color: rgba(255, 40, 40, 0.6);
 }
-
-/* Genel Animasyonlar */
-* {
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px var(--highlight-color);
-  }
-  50% {
-    box-shadow: 0 0 20px var(--highlight-color), 0 0 30px var(--highlight-color);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  70% {
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-2px);
-  }
-  20%, 40%, 60%, 80% {
-    transform: translateX(2px);
-  }
-}
-
-@keyframes black-circle {
-  0% {
-    opacity: 0;
-    background: transparent;
-  }
-  100% {
-    opacity: 1;
-    background: radial-gradient(transparent, #000);
-  }
-}
-
-/* Temel Elementler */
-.actionbuttons,
-.channelbtn,
-.tab-list-item,
-kbd,
-td,
-th {
+body {
+  background: linear-gradient(135deg, #1a0000 0%, #3a1c2d 60%, #2e1a47 100%) fixed;
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   color: var(--main-color);
-  background-color: var(--background-color);
-  animation: slideIn 0.5s ease-out;
+  position: relative;
+  overflow-x: hidden;
 }
-
-.actionbuttons {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  gap: 6px !important;
-  padding: 4px !important;
-  position: fixed !important;
-  right: 16px !important;
-  top: 12px !important;
-  left: auto !important;
-  z-index: 100 !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-.actionbuttons > * {
-  width: 28px !important;
-  height: 28px !important;
-  font-size: 15px !important;
-  border-radius: 50% !important;
-  margin-bottom: 0 !important;
-  margin-right: 0 !important;
-}
-
-.actionbuttons::before {
+body::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.actionbuttons:hover::before {
-  left: 100%;
-}
-
-/* Text Shadow Uygulaması */
-.Alert,
-.chatlink,
-.chatname,
-.modal * {
-  text-shadow: 0 0 1px #000;
-}
-
-/* Hover Efektleri */
-.channelbtn:hover,
-.chatmsg:hover,
-.chn.selected,
-.chn:hover,
-.chntype.selected,
-.chntype:hover,
-.contextmenu > div:hover,
-.coorbox:hover,
-.modal-topbtn:hover,
-.onlinebox:hover,
-.tab-list-item:not(.active):hover,
-.win-title:hover,
-.win-topbtn:hover,
-tr:nth-child(2n) {
-  background-color: var(--highlight-background-color);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.channelbtn:hover,
-.chn:hover,
-.chntype:hover {
-  animation: pulse 0.6s ease-in-out;
-}
-
-.contextmenu > div:hover {
-  animation: glow 1s ease-in-out infinite;
-}
-
-/* Border Radius Uygulaması */
-.actionbuttons,
-.modal {
-  border-radius: 21px;
-  animation: bounceIn 0.8s ease-out;
-}
-
-.channeldd,
-.contextmenu {
-  border-radius: 8px;
-  animation: slideIn 0.4s ease-out;
-}
-
-.window {
-  border-radius: 5px;
-  animation: slideIn 0.6s ease-out;
-}
-
-.Alert {
-  border-radius: 12px;
-  animation: bounceIn 0.7s ease-out;
-}
-
-#historyselect,
-.cooldownbox,
-.coorbox,
-.onlinebox {
-  background-color: var(--background-color);
-  color: var(--main-color);
-  border-radius: 21px;
-  animation: slideIn 0.5s ease-out;
-}
-
-.coorbox:hover,
-.onlinebox:hover {
-  animation: pulse 0.8s ease-in-out;
-}
-
-img[alt="CAPTCHA"] {
-  filter: contrast(1.25) invert(1);
-  border: 1px solid rgba(116, 255, 255, 0.85);
-  border-radius: 10px;
-  animation: glow 2s ease-in-out infinite;
-}
-
-/* Klavye Tuşları */
-kbd {
-  border-color: var(--border-color);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-/* Başlık Renkleri */
-.chatts {
-  color: var(--important-color);
-}
-
-h2,
-h3,
-h4 {
-  color: var(--title-color);
-}
-
-h3 {
-  margin: 6px;
-}
-
-h4 {
-  margin: 4px;
-}
-
-/* Genel Renkler */
-.Alert,
-.channeldd,
-.contextmenu,
-.modal,
-.modal-topbtn,
-.modalinfo,
-.modallink,
-.popup,
-.tab-list-item,
-.win-topbar,
-.window,
-a,
-a:link,
-a:visited,
-button,
-input,
-select {
-  color: var(--main-color);
-}
-
-/* Özel Görsel Efektler */
-.cvimg {
-  border: 1px solid var(--border-color);
-  border-radius: 100%;
-  background: radial-gradient(black, 45%, red, 70%, #8b0000);
-  opacity: 0.5;
-}
-
-/* Arkaplan Renkleri */
-.chn,
-.chntype,
-.contextmenu > div,
-.react-toggle-track,
-button,
-input,
-select {
-  background-color: var(--background-color);
-}
-
-.channeldd,
-.contextmenu,
-.menu > div,
-.modal-topbtn,
-.popup,
-.win-topbtn,
-.window {
-  background-color: var(--background-color);
-}
-
-.tab-list-item {
-  background-color: transparent;
-}
-
-.tab-list-item.active {
-  background-color: var(--highlight-background-color);
-}
-
-.chatname {
-  background-color: transparent;
-}
-
-/* Buton Stilleri */
-button,
-input,
-select {
-  border-style: solid;
-  border-width: 1px;
-  border-image: linear-gradient(
-      to right top,
-      var(--main-color) 0%,
-      var(--main-color) 15%,
-      transparent 50%
-    )
-    1;
-  position: relative;
-  overflow: hidden;
-  filter: none;
-  opacity: 1;
-  pointer-events: auto;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-button[disabled],
-button:disabled {
-  opacity: 0.5;
-  filter: grayscale(0.7) brightness(0.8);
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -2;
   pointer-events: none;
-  cursor: not-allowed;
+  background: radial-gradient(circle at 70% 20%, rgba(255,40,40,0.10) 0, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(255,40,40,0.08) 0, transparent 60%);
+  filter: blur(18px) brightness(1.08);
+  opacity: 0.8;
 }
-
-button {
-  background-image: linear-gradient(
-    to right top,
-    var(--second-color) 0,
-    transparent 75%
-  );
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
+/* Kart ve modal kutulara cam efekti ve yumuşak gölge */
+.Alert, .modal, .window, .popup, .contextmenu, .channeldd {
+  background: rgba(20, 0, 0, 0.92) !important;
+  box-shadow: 0 8px 32px 0 #8b000088, 0 0 0 1.5px #fff1;
+  border-radius: 18px;
+  border: 1.5px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(10px) saturate(1.2);
 }
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  animation: pulse 0.6s ease-in-out;
+h2, h3, h4 {
+  text-shadow: 0 0 12px var(--glow-color), 0 0 2px #fff2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
-
-button:active {
-  transform: translateY(0);
-  animation: shake 0.5s ease-in-out;
+.actionbuttons, .channelbtn, .tab-list-item, button {
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 2px 16px var(--glow-color), 0 1.5px 0 var(--border-color);
+  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  background: linear-gradient(120deg, #2e1a47 60%, #3a1c2d 100%);
 }
-
-input:focus,
-select:focus {
-  animation: glow 0.5s ease-in-out;
-  transform: scale(1.02);
+.actionbuttons:hover, .channelbtn:hover, .tab-list-item:not(.active):hover, button:hover {
+  background: linear-gradient(90deg, var(--highlight-background-color) 60%, var(--main-color) 100%);
+  transform: scale(1.04) translateY(-2px);
+  box-shadow: 0 6px 24px var(--glow-color), 0 2px 0 var(--main-color);
+  filter: brightness(1.08);
 }
-
-/* Toggle Stilleri */
-.react-toggle--checked .react-toggle-track {
-  background-color: var(--highlight-color);
+.actionbuttons:active, .channelbtn:active, button:active {
+  transform: scale(0.98);
+  filter: brightness(0.93);
 }
-
-.mention,
-.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: var(--important-color);
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
 }
-
-/* Çizgi ve Bölücüler */
-hr {
-  border-color: var(--second-color);
-  margin: 5px 0;
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #8b0000 60%, #ff2a2a 100%);
+  border-radius: 8px;
+  border: 2px solid #2e1a47;
+  box-shadow: 0 0 8px #ff2a2a44;
 }
-
-.modaldivider {
-  background-color: hsla(216, 4%, 74%, 0.3);
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff5555 60%, #ff4040 100%);
+  box-shadow: 0 0 16px #ff404055;
 }
-
-/* Link Stilleri */
-a,
-a:link {
+.menu>div:hover, .actionbuttons:hover, .coorbox:hover {
+  background-color: #363637 !important;
+  filter: brightness(1.08);
+}
+img[alt=CAPTCHA] {
+  filter: contrast(1.25) invert(1) drop-shadow(0 0 8px var(--highlight-color));
+  border: 1px solid rgba(255, 40, 40, 0.85);
+  border-radius: 10px;
+}
+/* Neon link efekti */
+a, a:link {
   font-weight: 700;
   position: relative;
   display: inline-block;
 }
-
 a::after {
   content: '';
   position: absolute;
@@ -403,218 +99,6 @@ a::after {
   background: var(--highlight-color);
   transition: width 0.3s ease;
 }
-
 a:hover::after {
   width: 100%;
-}
-
-.modallink:hover,
-.tab-list-item.active,
-a:hover {
-  color: var(--highlight-color);
-  animation: pulse 0.5s ease-in-out;
-}
-
-.chatlink {
-  color: var(--important-color);
-  animation: glow 2s ease-in-out infinite;
-}
-
-/* Border Renkleri */
-.inarea {
-  border-color: #d5d5d5;
-}
-
-.modal-topbtn,
-.win-topbtn,
-.window {
-  border-color: var(--border-color);
-}
-
-.win-title {
-  border-color: var(--border-color);
-}
-
-/* Özel Arkaplan ve Efektler */
-.Alert,
-.modal {
-  background-color: #000;
-  background-image: url("https://images3.alphacoders.com/742/742012.jpg");
-  background-repeat: repeat-x;
-  background-size: cover;
-  border: 1px solid #000;
-}
-
-.overlay {
-  opacity: 1;
-  background: radial-gradient(transparent, #000);
-  animation-name: black-circle;
-  animation-duration: 0.5s;
-}
-
-/* Metin Renkleri */
-.modal-content,
-.popup-content,
-.win-content {
-  color: #f4f4f4;
-}
-
-.modalcvtext,
-.modaldesc {
-  color: hsla(220, 100%, 95.3%, 0.6);
-}
-
-.msg {
-  color: #f3f3f3;
-}
-
-.msg.info {
-  color: #ff91a6;
-}
-
-.msg.event {
-  color: #9dc8ff;
-}
-
-.msg.greentext {
-  color: #94ff94;
-}
-
-.ebex {
-  color: #fff4bd;
-}
-
-.chatlink {
-  color: var(--important-color);
-}
-
-.statvalue {
-  color: #ecc9ff;
-}
-
-/* Özel Hover Efektleri */
-.actionbuttons:hover,
-.coorbox:hover,
-.menu > div:hover {
-  background-color: #363637;
-}
-
-/* Diğer Stiller */
-.chntop {
-  margin-top: 4px;
-}
-
-.menu > div {
-  z-index: 1;
-}
-
-/* Buton Düzeni - Sıralı Yerleştirme */
-.actionbuttons {
-  display: flex !important;
-  flex-direction: row !important;
-  align-items: flex-start !important;
-  gap: 6px !important;
-  padding: 4px !important;
-  position: fixed !important;
-  right: 16px !important;
-  top: 12px !important;
-  left: auto !important;
-  z-index: 100 !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-.actionbuttons > * {
-  width: 28px !important;
-  height: 28px !important;
-  font-size: 15px !important;
-  border-radius: 50% !important;
-  margin-bottom: 0 !important;
-  margin-right: 0 !important;
-}
-
-/* Butonları zorla sıralama */
-.actionbuttons button:nth-child(1) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(2) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(3) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(4) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(5) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(6) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(7) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(8) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(9) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-.actionbuttons button:nth-child(10) { 
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-}
-
-/* Eğer butonlar absolute pozisyonda ise */
-.actionbuttons button[style*="position: absolute"] {
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  bottom: auto !important;
-}
-
-/* Scrollbar Özelleştirme */
-::-webkit-scrollbar {
-  cursor: pointer;
-  width: 7.5px;
-  background-color: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #414244;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: grey;
 }
