@@ -4,24 +4,24 @@
 kbd,
 td,
 th {
-   color: var(--main-color);
-   background-color: var(--background-color);
+  color: var(--main-color);
+  background-color: var(--background-color);
 }
 .Alert,
 .chatlink,
 .chatname,
 .modal * {
-   text-shadow: 0 0 1px #000;
+  text-shadow: 0 0 1px #000;
 }
 :root {
-   --main-color: red;
-   --title-color: crimson;
-   --important-color: crimson;
-   --highlight-color: crimson;
-   --border-color: darkred;
-   --background-color: rgba(0, 0, 0, 0.85);
-   --highlight-background-color: rgba(64, 64, 64, 0.85);
-   --disable-background-color: grey;
+  --main-color: red;
+  --title-color: crimson;
+  --important-color: crimson;
+  --highlight-color: crimson;
+  --border-color: darkred;
+  --background-color: rgba(0, 0, 0, 0.85);
+  --highlight-background-color: rgba(64, 64, 64, 0.85);
+  --disable-background-color: grey;
 }
 .channelbtn:hover,
 .chatmsg:hover,
@@ -37,23 +37,23 @@ th {
 .win-title:hover,
 .win-topbtn:hover,
 tr:nth-child(2n) {
-   background-color: var(--highlight-background-color);
+  background-color: var(--highlight-background-color);
 }
 .actionbuttons,
 .modal {
-   border-radius: 21px;
+  border-radius: 21px;
 }
 kbd {
-   border-color: var(--border-color);
-   -webkit-box-shadow: none;
+  border-color: var(--border-color);
+  -webkit-box-shadow: none;
 }
 .chatts {
-   color: var(--important-color);
+  color: var(--important-color);
 }
 h2,
 h3,
 h4 {
-   color: var(--title-color);
+  color: var(--title-color);
 }
 .Alert,
 .channeldd,
@@ -72,24 +72,24 @@ a:visited,
 button,
 input,
 select {
-   color: var(--main-color);
+  color: var(--main-color);
 }
 h3 {
-   margin: 6px;
+  margin: 6px;
 }
 h4 {
-   margin: 4px;
+  margin: 4px;
 }
 img[alt="CAPTCHA"] {
-   filter: contrast(1.25) invert(1);
-   border: 1px solid rgba(116, 255, 255, 0.85);
-   border-radius: 10px;
+  filter: contrast(1.25) invert(1);
+  border: 1px solid rgba(116, 255, 255, 0.85);
+  border-radius: 10px;
 }
 .cvimg {
-   border: 1px solid var(--border-color);
-   border-radius: 100%;
-   background: radial-gradient(black, 45%, red, 70%, #8b0000);
-   opacity: 0.5;
+  border: 1px solid var(--border-color);
+  border-radius: 100%;
+  background: radial-gradient(black, 45%, red, 70%, #8b0000);
+  opacity: 0.5;
 }
 .chn,
 .chntype,
@@ -98,59 +98,59 @@ img[alt="CAPTCHA"] {
 button,
 input,
 select {
-   background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 button,
 input,
 select {
-   border-style: solid;
-   border-width: 1px;
-   border-image: linear-gradient(
-         to right top,
-         var(--main-color) 0%,
-         var(--main-color) 15%,
-         transparent 50%
-      )
-      1;
+  border-style: solid;
+  border-width: 1px;
+  border-image: linear-gradient(
+      to right top,
+      var(--main-color) 0%,
+      var(--main-color) 15%,
+      transparent 50%
+    )
+    1;
 }
 button {
-   background-image: linear-gradient(
-      to right top,
-      var(--second-color) 0,
-      transparent 75%
-   );
-   cursor: pointer;
+  background-image: linear-gradient(
+    to right top,
+    var(--second-color) 0,
+    transparent 75%
+  );
+  cursor: pointer;
 }
 .react-toggle--checked .react-toggle-track {
-   background-color: var(--highlight-color);
+  background-color: var(--highlight-color);
 }
 .mention,
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-   background-color: var(--important-color);
+  background-color: var(--important-color);
 }
 hr {
-   border-color: var(--second-color);
-   margin: 5px 0;
+  border-color: var(--second-color);
+  margin: 5px 0;
 }
 a,
 a:link {
-   font-weight: 700;
+  font-weight: 700;
 }
 .modallink:hover,
 .tab-list-item.active,
 a:hover {
-   color: var(--highlight-color);
+  color: var(--highlight-color);
 }
 .inarea {
-   border-color: #d5d5d5;
+  border-color: #d5d5d5;
 }
 .modal-topbtn,
 .win-topbtn,
 .window {
-   border-color: var(--border-color);
+  border-color: var(--border-color);
 }
 .tab-list-item {
-   background-color: transparent;
+  background-color: transparent;
 }
 .channeldd,
 .contextmenu,
@@ -159,132 +159,113 @@ a:hover {
 .popup,
 .win-topbtn,
 .window {
-   background-color: var(--background-color);
+  background-color: var(--background-color);
 }
 .tab-list-item.active {
-   background-color: var(--highlight-background-color);
+  background-color: var(--highlight-background-color);
 }
 .window {
-   border-radius: 5px;
+  border-radius: 5px;
 }
 .win-title {
-   border: var(--border-color);
+  border: var(--border-color);
 }
 .channeldd,
 .contextmenu {
-   border-radius: 8px;
+  border-radius: 8px;
 }
 .chntop {
-   margin-top: 4px;
+  margin-top: 4px;
 }
 #historyselect,
 .cooldownbox,
 .coorbox,
 .onlinebox {
-   background-color: var(--background-color);
-   color: var(--main-color);
-   border-radius: 21px;
+  background-color: var(--background-color);
+  color: var(--main-color);
+  border-radius: 21px;
 }
 .menu > div {
-   z-index: 1;
+  z-index: 1;
 }
 .Alert,
 .modal {
-   background-color: #000;
-   background-image: url("https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-ff1c-620a-b32c-ad4e5cdef0c5/raw?se=2025-07-09T09%3A31%3A38Z&sp=r&sv=2024-08-04&sr=b&scid=2675910b-5fda-527e-b7fc-990bc5155936&skoid=76024c37-11e2-4c92-aa07-7e519fbe2d0f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-09T08%3A13%3A10Z&ske=2025-07-10T08%3A13%3A10Z&sks=b&skv=2024-08-04&sig=wLBdYJxNpgF6vaH1BehIHHpevhU4Cpr2d/Trmw1zNqQ%3D");
-   background-repeat-x: repeat;
-   background-repeat-y: no-repeat;
-   background-size: cover;
-   border: 1px solid #000;
+  background-color: #000;
+  background-image: url("https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-ff1c-620a-b32c-ad4e5cdef0c5/raw?se=2025-07-09T09%3A37%3A02Z&sp=r&sv=2024-08-04&sr=b&scid=a8e11f85-dc61-5aec-95cb-60881e67c585&skoid=76024c37-11e2-4c92-aa07-7e519fbe2d0f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-09T06%3A53%3A07Z&ske=2025-07-10T06%3A53%3A07Z&sks=b&skv=2024-08-04&sig=n1cqje%2BH5B8YxJeK2bq6Yl%2BBQJNLgpcL80/arInFafE%3D");
+  background-repeat-x: repeat;
+  background-repeat-y: no-repeat;
+  background-size: cover;
+  border: 1px solid #000;
 }
 .Alert {
-   border-radius: 12px;
+  border-radius: 12px;
 }
 .modal-content,
 .popup-content,
 .win-content {
-   color: #f4f4f4;
+  color: #f4f4f4;
 }
 .modalcvtext,
 .modaldesc {
-   color: hsla(220, 100%, 95.3%, 0.6);
+  color: hsla(220, 100%, 95.3%, 0.6);
 }
 .modaldivider {
-   background-color: hsla(216, 4%, 74%, 0.3);
+  background-color: hsla(216, 4%, 74%, 0.3);
 }
 .overlay {
-   opacity: 1;
-   background: radial-gradient(transparent, #000);
-   animation-name: black-circle;
-   animation-duration: 0.5s;
+  opacity: 1;
+  background: radial-gradient(transparent, #000);
+  animation-name: black-circle;
+  animation-duration: 0.5s;
 }
 @keyframes black-circle {
-   0% {
-      opacity: 0;
-      background: 0 0;
-   }
-   100% {
-      opacity: 1;
-      background: radial-gradient(transparent, #000);
-   }
+  0% {
+    opacity: 0;
+    background: 0 0;
+  }
+  100% {
+    opacity: 1;
+    background: radial-gradient(transparent, #000);
+  }
 }
 .chatname {
-   background-color: transparent;
+  background-color: transparent;
 }
 .msg {
-   color: #f3f3f3;
+  color: #f3f3f3;
 }
 .msg.info {
-   color: #ff91a6;
+  color: #ff91a6;
 }
 .msg.event {
-   color: #9dc8ff;
+  color: #9dc8ff;
 }
 .msg.greentext {
-   color: #94ff94;
+  color: #94ff94;
 }
 .ebex {
-   color: #fff4bd;
+  color: #fff4bd;
 }
 .chatlink {
-   color: var(--important-color);
+  color: var(--important-color);
 }
 .statvalue {
-   color: #ecc9ff;
+  color: #ecc9ff;
 }
 .actionbuttons:hover,
 .coorbox:hover,
 .menu > div:hover {
-   background-color: #363637;
+  background-color: #363637;
 }
 ::-webkit-scrollbar {
-   cursor: pointer;
-   width: 7.5px;
-   background-color: transparent;
+  cursor: pointer;
+  width: 7.5px;
+  background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-   border-radius: 10px;
-   background: #414244;
+  border-radius: 10px;
+  background: #414244;
 }
 ::-webkit-scrollbar-thumb:hover {
-   background: grey;
-}
-body {
-  background: linear-gradient(135deg, #1a0000 0%, #3a1c2d 60%, #2e1a47 100%) fixed;
-  min-height: 100vh;
-  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  color: var(--main-color);
-  position: relative;
-  overflow-x: hidden;
-}
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -2;
-  pointer-events: none;
-  background: radial-gradient(circle at 70% 20%, rgba(255,40,40,0.10) 0, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(255,40,40,0.08) 0, transparent 60%);
-  filter: blur(18px) brightness(1.08);
-  opacity: 0.8;
+  background: grey;
 }
