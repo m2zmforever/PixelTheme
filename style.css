@@ -15,8 +15,36 @@ body, .window, .modal, .popup, .contextmenu, .channeldd {
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   letter-spacing: 0.01em;
   font-size: 15px;
-  background: var(--background-color);
+  background: linear-gradient(135deg, #181c24 0%, #2c2f3a 60%, #3a1c2d 100%) fixed;
+  min-height: 100vh;
+  /* Hafif cam efekti ve yumuşak geçiş */
+  backdrop-filter: blur(8px) saturate(1.3);
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.35);
 }
+
+/* Arka plana hareketli bir parıltı efekti ekle */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 80% 20%, rgba(255,56,120,0.12) 0, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(120,200,255,0.10) 0, transparent 60%);
+  pointer-events: none;
+  animation: bg-move 12s ease-in-out infinite alternate;
+}
+@keyframes bg-move {
+  0% { filter: blur(0px) brightness(1); }
+  100% { filter: blur(2px) brightness(1.08); }
+}
+
+/* Kart ve modal kutulara cam efekti ve yumuşak gölge */
+.modal, .popup, .window, .contextmenu, .channeldd {
+  background: rgba(30, 30, 40, 0.82);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.45);
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+
 .actionbuttons,
 .channelbtn,
 .tab-list-item,
@@ -40,23 +68,17 @@ select:hover {
   transform: scale(1.04);
   box-shadow: 0 4px 18px var(--shadow-color), 0 2px 0 var(--main-color);
 }
-.modal, .popup, .window, .contextmenu, .channeldd {
-  backdrop-filter: blur(6px) saturate(1.2);
-  background: var(--glass-bg);
-  border-radius: 18px;
-  box-shadow: 0 6px 32px var(--shadow-color);
-}
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3a3a3a 60%, var(--main-color) 100%);
-  border-radius: 12px;
-  border: 2px solid var(--background-color);
+  background: linear-gradient(135deg, #3a3a3a 60%, #ff3b3b 100%);
+  border-radius: 16px;
+  border: 2px solid #23232b;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #555 60%, var(--highlight-color) 100%);
+  background: linear-gradient(135deg, #555 60%, #ff8a65 100%);
 }
 h2, h3, h4 {
   text-shadow: 0 2px 8px var(--shadow-color);
@@ -323,4 +345,60 @@ a:hover {
 .coorbox:hover,
 .menu > div:hover {
   background-color: #363637;
+}
+
+/* Arka planı daha modern ve şık yapmak için güncellendi */
+body, .window, .modal, .popup, .contextmenu, .channeldd {
+  /* ...existing code... */
+  background: linear-gradient(135deg, #181c24 0%, #2c2f3a 60%, #3a1c2d 100%) fixed;
+  min-height: 100vh;
+  /* Hafif cam efekti ve yumuşak geçiş */
+  backdrop-filter: blur(8px) saturate(1.3);
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.35);
+}
+
+/* Arka plana hareketli bir parıltı efekti ekle */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: -1;
+  background: radial-gradient(circle at 80% 20%, rgba(255,56,120,0.12) 0, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(120,200,255,0.10) 0, transparent 60%);
+  pointer-events: none;
+  animation: bg-move 12s ease-in-out infinite alternate;
+}
+@keyframes bg-move {
+  0% { filter: blur(0px) brightness(1); }
+  100% { filter: blur(2px) brightness(1.08); }
+}
+
+/* Kart ve modal kutulara cam efekti ve yumuşak gölge */
+.modal, .popup, .window, .contextmenu, .channeldd {
+  background: rgba(30, 30, 40, 0.82);
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.45);
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+
+/* Scrollbar daha şık ve modern */
+::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #3a3a3a 60%, #ff3b3b 100%);
+  border-radius: 16px;
+  border: 2px solid #23232b;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #555 60%, #ff8a65 100%);
+}
+
+/* Arka planı daha canlı göstermek için hafif bir parıltı animasyonu */
+body {
+  animation: body-glow 8s ease-in-out infinite alternate;
+}
+@keyframes body-glow {
+  0% { box-shadow: 0 0 0 0 rgba(255,56,120,0.08); }
+  100% { box-shadow: 0 0 80px 0 rgba(255,56,120,0.13); }
 }
