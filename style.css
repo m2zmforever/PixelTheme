@@ -1,18 +1,19 @@
 /* Modern ve şık efektler eklendi, isimlendirme ve kod yapısı korunarak sadece görsel iyileştirme yapıldı */
 :root {
-  --main-color: #ff2a2a;
-  --title-color: #ff5555;
-  --important-color: #ff1a1a;
-  --highlight-color: #ff4040;
-  --border-color: #8b0000;
-  --background-color: rgba(10, 0, 0, 0.92);
-  --highlight-background-color: rgba(50, 0, 0, 0.8);
-  --disable-background-color: #5a0000;
-  --second-color: #d10000;
-  --glow-color: rgba(255, 40, 40, 0.6);
+  --main-color: #ff3b3b;
+  --title-color: #ff6b6b;
+  --important-color: #ff4d4d;
+  --highlight-color: #ff8080;
+  --border-color: #b71c1c;
+  --background-color: rgba(255, 240, 240, 0.92);
+  --highlight-background-color: rgba(255, 200, 200, 0.8);
+  --disable-background-color: #ffd6d6;
+  --second-color: #ffb3b3;
+  --glow-color: rgba(255, 100, 100, 0.4);
 }
 body {
-  background: linear-gradient(135deg, #1a0000 0%, #3a1c2d 60%, #2e1a47 100%) fixed;
+  background: url('https://images.unsplash.com/photo-1706718435630-7d587ac2e655?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI2fHx8ZW58MHx8fHx8') center center/cover no-repeat fixed,
+    linear-gradient(135deg, #ffb3b3 0%, #ffeaea 100%) fixed;
   min-height: 100vh;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   color: var(--main-color);
@@ -25,10 +26,10 @@ body::after {
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -2;
   pointer-events: none;
-  background: radial-gradient(circle at 70% 20%, rgba(255,40,40,0.10) 0, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(255,40,40,0.08) 0, transparent 60%);
-  filter: blur(18px) brightness(1.08);
-  opacity: 0.8;
+  background: radial-gradient(circle at 70% 20%, rgba(255,40,40,0.07) 0, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(255,40,40,0.05) 0, transparent 60%);
+  filter: blur(12px) brightness(1.12);
+  opacity: 0.7;
 }
 /* Kart ve modal kutulara cam efekti ve yumuşak gölge */
 .Alert, .modal, .window, .popup, .contextmenu, .channeldd {
