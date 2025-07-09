@@ -191,7 +191,7 @@ a:hover {
 .Alert,
 .modal {
    background-color: #000;
-   background-image: url("https://i.imgur.com/yxyjWbb.png");
+   background-image: url("https://www.shutterstock.com/image-photo/explosion-smog-paint-water-splash-600nw-2508146055.jpg");
    background-repeat-x: repeat;
    background-repeat-y: no-repeat;
    background-size: cover;
@@ -270,18 +270,15 @@ a:hover {
    background: grey;
 }
 body {
-  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  background: linear-gradient(120deg, #23243a 0%, #3a1c2d 60%, #2e1a47 100%) fixed,
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat fixed;
+  background: linear-gradient(135deg, #1a0000 0%, #3a1c2d 60%, #2e1a47 100%) fixed;
   min-height: 100vh;
-  position: relative;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  color: var(--main-color);
 }
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
-  background: inherit;
-  filter: blur(14px) brightness(1.10) saturate(1.15);
-  opacity: 0.75;
+  display: none;
 }
