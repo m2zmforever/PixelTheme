@@ -1,22 +1,22 @@
 /* Modern ve şık efektler eklendi, isimlendirme ve kod yapısı korunarak sadece görsel iyileştirme yapıldı */
 :root {
-  --main-color: #ff3b3b;
-  --title-color: #ff6b6b;
-  --important-color: #ff4d4d;
+  --main-color: #ff4d4d;
+  --title-color: #ffb3b3;
+  --important-color: #ff6666;
   --highlight-color: #ff8080;
-  --border-color: #b71c1c;
-  --background-color: rgba(255, 240, 240, 0.92);
-  --highlight-background-color: rgba(255, 200, 200, 0.8);
-  --disable-background-color: #ffd6d6;
-  --second-color: #ffb3b3;
-  --glow-color: rgba(255, 100, 100, 0.4);
+  --border-color: darkred;
+  --background-color: rgba(30, 0, 0, 0.92);
+  --highlight-background-color: rgba(64, 0, 0, 0.85);
+  --disable-background-color: #5a0000;
+  --second-color: #8b0000;
+  --glow-color: rgba(255, 77, 77, 0.3);
 }
 body {
-  background: url('https://images.unsplash.com/photo-1706718435630-7d587ac2e655?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDI2fHx8ZW58MHx8fHx8') center center/cover no-repeat fixed,
-    linear-gradient(135deg, #ffb3b3 0%, #ffeaea 100%) fixed;
+  background: url('https://i.imgur.com/yxyjWbb.png') center center/cover no-repeat fixed,
+    linear-gradient(135deg, #2e0000 0%, #8b0000 100%) fixed;
   min-height: 100vh;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  color: var(--main-color);
+  color: #ffb3b3;
   position: relative;
   overflow-x: hidden;
 }
@@ -39,7 +39,8 @@ body::after {
   border: 1.5px solid rgba(255,255,255,0.10);
   backdrop-filter: blur(10px) saturate(1.2);
 }
-h2, h3, h4 {
+h2, h3, h4, .modal-content, .popup-content, .win-content, .msg, .msg.info, .msg.event, .msg.greentext, .ebex, .chatlink, .statvalue {
+  color: #ffb3b3 !important;
   text-shadow: 0 0 12px var(--glow-color), 0 0 2px #fff2;
   font-weight: 700;
   letter-spacing: 0.02em;
