@@ -1,155 +1,230 @@
-/* --- DAHA ŞIK VE MODERN TASARIM İYİLEŞTİRMELERİ --- */
 :root {
-  --main-color: #ff3b3b;
-  --title-color: #ff5e62;
-  --important-color: #ff5e62;
-  --highlight-color: #ff8a65;
-  --border-color: #b71c1c;
-  --background-color: rgba(24, 28, 36, 0.96);
-  --highlight-background-color: rgba(60, 60, 80, 0.92);
-  --disable-background-color: #444;
-  --shadow-color: rgba(0,0,0,0.25);
-  --glass-bg: rgba(40,40,60,0.7);
-  --frosted-glass: rgba(40,40,60,0.55);
-  --accent-glow: 0 0 32px 0 #ff3b3b44;
-}
-body, .window, .modal, .popup, .contextmenu, .channeldd {
-  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  letter-spacing: 0.01em;
-  font-size: 15px;
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat fixed, linear-gradient(120deg, #f8f8fa 0%, #e3e6f3 100%);
-  min-height: 100vh;
-  position: relative;
-  backdrop-filter: blur(12px) saturate(1.4);
-  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.45);
-  border-radius: 18px;
-  border: 1.5px solid rgba(255,255,255,0.06);
+  --main-color: #ff2a2a;
+  --title-color: #ff5555;
+  --important-color: #ff1a1a;
+  --highlight-color: #ff4040;
+  --border-color: #8b0000;
+  --background-color: rgba(10, 0, 0, 0.92);
+  --highlight-background-color: rgba(50, 0, 0, 0.8);
+  --disable-background-color: #5a0000;
+  --second-color: #d10000;
+  --glow-color: rgba(255, 40, 40, 0.6);
 }
 
-/* Arka plana hareketli bir parıltı efekti ekle */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
-  background: inherit;
-  filter: blur(12px) brightness(1.08) saturate(1.2);
-  opacity: 0.7;
-}
-
-/* Kart ve modal kutulara cam efekti ve yumuşak gölge */
-.modal, .popup, .window, .contextmenu, .channeldd {
-  background: rgba(10, 10, 15, 0.92);
-  box-shadow: 0 0 32px 8px #ff3b3b33, 0 8px 32px 0 #000a;
-  border-radius: 18px;
-  border: 1.5px solid rgba(255,255,255,0.10);
-  backdrop-filter: blur(8px) saturate(1.2);
-}
-
+/* Genel Stiller */
 .actionbuttons,
 .channelbtn,
 .tab-list-item,
 kbd,
 td,
-th,
-button,
-input,
-select {
-  box-shadow: 0 2px 16px var(--shadow-color), 0 1.5px 0 var(--border-color), var(--accent-glow);
-  border-radius: 18px;
-  border: 1.5px solid var(--border-color);
-  background: linear-gradient(120deg, #23243a 60%, #3a1c2d 100%);
-  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+th {
+  color: var(--main-color);
+  background-color: var(--background-color);
+  transition: all 0.3s ease;
 }
+
+/* Animasyonlu Elementler */
 .actionbuttons:hover,
 .channelbtn:hover,
-.tab-list-item:not(.active):hover,
-button:hover,
-input:hover,
-select:hover {
-  background: linear-gradient(90deg, var(--highlight-background-color) 60%, var(--main-color) 100%);
-  transform: scale(1.06) translateY(-2px);
-  box-shadow: 0 6px 24px var(--shadow-color), 0 2px 0 var(--main-color), 0 0 32px 0 #ff3b3b55;
-  filter: brightness(1.08);
+.tab-list-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--glow-color);
 }
-.actionbuttons:active, .channelbtn:active, button:active {
-  transform: scale(0.98);
-  filter: brightness(0.93);
+
+.actionbuttons:active,
+.channelbtn:active {
+  transform: translateY(1px);
 }
-::-webkit-scrollbar {
-  width: 12px;
-  background: transparent;
+
+/* Kanallar */
+.channelbtn {
+  position: relative;
+  overflow: hidden;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  animation: fadeIn 0.8s ease-out;
 }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #3a3a3a 60%, #ff3b3b 100%);
-  border-radius: 18px;
-  border: 2px solid #23232b;
-  box-shadow: 0 0 8px #ff3b3b44;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #555 60%, #ff8a65 100%);
-  box-shadow: 0 0 16px #ff8a6555;
-}
-h2, h3, h4 {
-  text-shadow: 0 2px 12px var(--shadow-color), 0 0 8px #ff3b3b22;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.Alert {
-  box-shadow: 0 4px 32px var(--main-color), 0 2px 0 var(--border-color), 0 0 32px 0 #ff3b3b44;
-  border-radius: 16px;
-  border: 1.5px solid var(--main-color);
-}
-/* Hafif parıltı efekti */
-.mention, .chatlink, .modallink:hover, .tab-list-item.active, a:hover {
-  text-shadow: 0 0 12px var(--highlight-color), 0 0 2px #fff;
-  filter: brightness(1.15);
-}
-/* Kayan neon border animasyonu */
-@keyframes neon-border {
-  0% { box-shadow: 0 0 8px 0 #ff3b3b44, 0 0 0 #ff8a65; }
-  100% { box-shadow: 0 0 24px 4px #ff8a65, 0 0 0 #ff3b3b44; }
-}
-.actionbuttons, .channelbtn, .tab-list-item.active, button:focus {
-  animation: neon-border 2.5s alternate infinite;
-}
-/* Kayan gradientli başlık efekti */
-h1, h2, h3, h4 {
-  background: linear-gradient(90deg, #ff3b3b, #ff8a65, #5e72eb, #ff3b3b);
-  background-size: 200% auto;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: gradient-move 6s linear infinite;
-}
-@keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-/* Cam efekti ve modern border-radius'lar için eski kodları güncelle */
-.Alert,
-.modal,
-.popup,
-.window,
-.contextmenu,
-.channeldd {
-  border-radius: 18px;
-  border: 1.5px solid rgba(255,255,255,0.10);
-  box-shadow: 0 8px 32px 0 #000a, 0 0 0 1.5px #fff1;
-  backdrop-filter: blur(16px) saturate(1.5);
-}
-/* Standart box-shadow ekle (uyumluluk için) */
-kbd {
+
+.channelbtn:hover {
+  background: var(--highlight-background-color);
   border-color: var(--border-color);
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  transform: translateX(5px);
 }
-/* background-repeat-x ve y yerine background-repeat kullan */
-.Alert,
-.modal {
-  background-color: #000;
-  background-image: url("https://i.imgur.com/yxyjWbb.png");
-  background-repeat: repeat no-repeat;
-  background-size: cover;
-  border: 1px solid #000;
+
+.channelbtn:hover::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--highlight-color);
+  animation: channelGlow 1.5s infinite;
+}
+
+.channelbtn.selected {
+  background: linear-gradient(90deg, rgba(139, 0, 0, 0.3) 0%, var(--highlight-background-color) 100%);
+  border-color: var(--border-color);
+  box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* Mesajlar */
+.chatmsg {
+  animation: messageAppear 0.4s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.chatmsg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+}
+
+/* Butonlar */
+button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--main-color), #8b0000);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 40, 40, 0.4);
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+}
+
+button:hover::after {
+  transform: rotate(30deg) translate(20%, 20%);
+}
+
+/* Online Göstergesi */
+.onlinebox::before {
+  content: '';
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00ff00;
+  box-shadow: 0 0 8px #00ff00;
+  animation: pulse 1.5s infinite;
+  margin-right: 8px;
+}
+
+/* Başlıklar */
+h2, h3, h4 {
+  text-shadow: 0 0 10px var(--glow-color);
+  animation: fadeIn 1s ease-out;
+}
+
+/* Modal ve Pencereler */
+.modal, .window {
+  animation: slideIn 0.5s ease-out;
+  box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(20, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--main-color), #8b0000);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight-color);
+}
+
+/* Animasyon Tanımları */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes messageAppear {
+  from { 
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+}
+
+@keyframes channelGlow {
+  0% { opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Özel Efektler */
+.Alert, .modal {
+  background-image: radial-gradient(ellipse at center, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.9) 70%);
+}
+
+.actionbuttons, .modal-topbtn, .win-topbtn {
+  border-image: linear-gradient(
+    to right top,
+    var(--main-color) 0%,
+    var(--main-color) 15%,
+    transparent 50%
+  ) 1;
+}
+
+/* Hover Efektleri */
+.chn:hover, .chntype:hover, .contextmenu > div:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+/* Seçili Öğeler */
+.tab-list-item.active {
+  background: linear-gradient(90deg, var(--highlight-background-color) 0%, transparent 100%);
+  border-left: 3px solid var(--highlight-color);
+}
+
+/* Kapalı/Gri Öğeler */
+.react-toggle-track {
+  transition: background-color 0.4s ease;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: var(--highlight-color) !important;
 }
