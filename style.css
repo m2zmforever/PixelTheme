@@ -17,8 +17,9 @@ body, .window, .modal, .popup, .contextmenu, .channeldd {
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   letter-spacing: 0.01em;
   font-size: 15px;
-  background: linear-gradient(120deg, #181c24 0%, #23243a 60%, #3a1c2d 100%) fixed;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat fixed, linear-gradient(120deg, #f8f8fa 0%, #e3e6f3 100%);
   min-height: 100vh;
+  position: relative;
   backdrop-filter: blur(12px) saturate(1.4);
   box-shadow: 0 8px 40px 0 rgba(0,0,0,0.45);
   border-radius: 18px;
@@ -31,18 +32,18 @@ body::before {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
-  background: radial-gradient(circle at 80% 20%, rgba(255,56,120,0.16) 0, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(120,200,255,0.13) 0, transparent 60%),
-              linear-gradient(120deg, #23243a 0%, #3a1c2d 100%);
-  filter: blur(2.5px) brightness(1.08);
+  background: inherit;
+  filter: blur(12px) brightness(1.08) saturate(1.2);
+  opacity: 0.7;
 }
 
 /* Kart ve modal kutulara cam efekti ve yumuşak gölge */
 .modal, .popup, .window, .contextmenu, .channeldd {
-  background: var(--frosted-glass);
-  box-shadow: 0 8px 32px 0 #000a, 0 0 0 1.5px #fff1;
+  background: rgba(10, 10, 15, 0.92);
+  box-shadow: 0 0 32px 8px #ff3b3b33, 0 8px 32px 0 #000a;
+  border-radius: 18px;
   border: 1.5px solid rgba(255,255,255,0.10);
-  backdrop-filter: blur(16px) saturate(1.5);
+  backdrop-filter: blur(8px) saturate(1.2);
 }
 
 .actionbuttons,
