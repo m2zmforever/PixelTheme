@@ -1,18 +1,4 @@
-.actionbuttons,
-.channelbtn,
-.tab-list-item,
-kbd,
-td,
-th {
-  color: var(--main-color);
-  background-color: var(--background-color);
-}
-.Alert,
-.chatlink,
-.chatname,
-.modal * {
-  text-shadow: 0 0 1px #000;
-}
+/* CSS Variables - Ana Renkler */
 :root {
   --main-color: red;
   --title-color: crimson;
@@ -23,6 +9,27 @@ th {
   --highlight-background-color: rgba(64, 64, 64, 0.85);
   --disable-background-color: grey;
 }
+
+/* Temel Elementler */
+.actionbuttons,
+.channelbtn,
+.tab-list-item,
+kbd,
+td,
+th {
+  color: var(--main-color);
+  background-color: var(--background-color);
+}
+
+/* Text Shadow Uygulaması */
+.Alert,
+.chatlink,
+.chatname,
+.modal * {
+  text-shadow: 0 0 1px #000;
+}
+
+/* Hover Efektleri */
 .channelbtn:hover,
 .chatmsg:hover,
 .chn.selected,
@@ -39,22 +46,67 @@ th {
 tr:nth-child(2n) {
   background-color: var(--highlight-background-color);
 }
+
+/* Border Radius Uygulaması */
 .actionbuttons,
 .modal {
   border-radius: 21px;
 }
+
+.channeldd,
+.contextmenu {
+  border-radius: 8px;
+}
+
+.window {
+  border-radius: 5px;
+}
+
+.Alert {
+  border-radius: 12px;
+}
+
+#historyselect,
+.cooldownbox,
+.coorbox,
+.onlinebox {
+  background-color: var(--background-color);
+  color: var(--main-color);
+  border-radius: 21px;
+}
+
+img[alt="CAPTCHA"] {
+  filter: contrast(1.25) invert(1);
+  border: 1px solid rgba(116, 255, 255, 0.85);
+  border-radius: 10px;
+}
+
+/* Klavye Tuşları */
 kbd {
   border-color: var(--border-color);
   -webkit-box-shadow: none;
 }
+
+/* Başlık Renkleri */
 .chatts {
   color: var(--important-color);
 }
+
 h2,
 h3,
 h4 {
   color: var(--title-color);
 }
+
+h3 {
+  margin: 6px;
+}
+
+h4 {
+  margin: 4px;
+}
+
+/* Genel Renkler */
 .Alert,
 .channeldd,
 .contextmenu,
@@ -74,23 +126,16 @@ input,
 select {
   color: var(--main-color);
 }
-h3 {
-  margin: 6px;
-}
-h4 {
-  margin: 4px;
-}
-img[alt="CAPTCHA"] {
-  filter: contrast(1.25) invert(1);
-  border: 1px solid rgba(116, 255, 255, 0.85);
-  border-radius: 10px;
-}
+
+/* Özel Görsel Efektler */
 .cvimg {
   border: 1px solid var(--border-color);
   border-radius: 100%;
   background: radial-gradient(black, 45%, red, 70%, #8b0000);
   opacity: 0.5;
 }
+
+/* Arkaplan Renkleri */
 .chn,
 .chntype,
 .contextmenu > div,
@@ -100,6 +145,30 @@ input,
 select {
   background-color: var(--background-color);
 }
+
+.channeldd,
+.contextmenu,
+.menu > div,
+.modal-topbtn,
+.popup,
+.win-topbtn,
+.window {
+  background-color: var(--background-color);
+}
+
+.tab-list-item {
+  background-color: transparent;
+}
+
+.tab-list-item.active {
+  background-color: var(--highlight-background-color);
+}
+
+.chatname {
+  background-color: transparent;
+}
+
+/* Buton Stilleri */
 button,
 input,
 select {
@@ -113,6 +182,7 @@ select {
     )
     1;
 }
+
 button {
   background-image: linear-gradient(
     to right top,
@@ -121,73 +191,55 @@ button {
   );
   cursor: pointer;
 }
+
+/* Toggle Stilleri */
 .react-toggle--checked .react-toggle-track {
   background-color: var(--highlight-color);
 }
+
 .mention,
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
   background-color: var(--important-color);
 }
+
+/* Çizgi ve Bölücüler */
 hr {
   border-color: var(--second-color);
   margin: 5px 0;
 }
+
+.modaldivider {
+  background-color: hsla(216, 4%, 74%, 0.3);
+}
+
+/* Link Stilleri */
 a,
 a:link {
   font-weight: 700;
 }
+
 .modallink:hover,
 .tab-list-item.active,
 a:hover {
   color: var(--highlight-color);
 }
+
+/* Border Renkleri */
 .inarea {
   border-color: #d5d5d5;
 }
+
 .modal-topbtn,
 .win-topbtn,
 .window {
   border-color: var(--border-color);
 }
-.tab-list-item {
-  background-color: transparent;
-}
-.channeldd,
-.contextmenu,
-.menu > div,
-.modal-topbtn,
-.popup,
-.win-topbtn,
-.window {
-  background-color: var(--background-color);
-}
-.tab-list-item.active {
-  background-color: var(--highlight-background-color);
-}
-.window {
-  border-radius: 5px;
-}
+
 .win-title {
   border: var(--border-color);
 }
-.channeldd,
-.contextmenu {
-  border-radius: 8px;
-}
-.chntop {
-  margin-top: 4px;
-}
-#historyselect,
-.cooldownbox,
-.coorbox,
-.onlinebox {
-  background-color: var(--background-color);
-  color: var(--main-color);
-  border-radius: 21px;
-}
-.menu > div {
-  z-index: 1;
-}
+
+/* Özel Arkaplan ve Efektler */
 .Alert,
 .modal {
   background-color: #000;
@@ -197,27 +249,14 @@ a:hover {
   background-size: cover;
   border: 1px solid #000;
 }
-.Alert {
-  border-radius: 12px;
-}
-.modal-content,
-.popup-content,
-.win-content {
-  color: #f4f4f4;
-}
-.modalcvtext,
-.modaldesc {
-  color: hsla(220, 100%, 95.3%, 0.6);
-}
-.modaldivider {
-  background-color: hsla(216, 4%, 74%, 0.3);
-}
+
 .overlay {
   opacity: 1;
   background: radial-gradient(transparent, #000);
   animation-name: black-circle;
   animation-duration: 0.5s;
 }
+
 @keyframes black-circle {
   0% {
     opacity: 0;
@@ -228,44 +267,75 @@ a:hover {
     background: radial-gradient(transparent, #000);
   }
 }
-.chatname {
-  background-color: transparent;
+
+/* Metin Renkleri */
+.modal-content,
+.popup-content,
+.win-content {
+  color: #f4f4f4;
 }
+
+.modalcvtext,
+.modaldesc {
+  color: hsla(220, 100%, 95.3%, 0.6);
+}
+
 .msg {
   color: #f3f3f3;
 }
+
 .msg.info {
   color: #ff91a6;
 }
+
 .msg.event {
   color: #9dc8ff;
 }
+
 .msg.greentext {
   color: #94ff94;
 }
+
 .ebex {
   color: #fff4bd;
 }
+
 .chatlink {
   color: var(--important-color);
 }
+
 .statvalue {
   color: #ecc9ff;
 }
+
+/* Özel Hover Efektleri */
 .actionbuttons:hover,
 .coorbox:hover,
 .menu > div:hover {
   background-color: #363637;
 }
+
+/* Diğer Stiller */
+.chntop {
+  margin-top: 4px;
+}
+
+.menu > div {
+  z-index: 1;
+}
+
+/* Scrollbar Özelleştirme */
 ::-webkit-scrollbar {
   cursor: pointer;
   width: 7.5px;
   background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: #414244;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: grey;
 }
