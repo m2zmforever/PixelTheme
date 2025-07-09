@@ -14,11 +14,11 @@ th {
    text-shadow: 0 0 1px #000;
 }
 :root {
-   --main-color: #ff00ff; /* MAGENTA */
-   --title-color: #cc00cc; /* Koyu Magenta */
-   --important-color: #cc00cc; /* Koyu Magenta */
-   --highlight-color: #cc00cc; /* Koyu Magenta */
-   --border-color: #8b008b; /* Koyu Magenta */
+   --main-color: red;
+   --title-color: crimson;
+   --important-color: crimson;
+   --highlight-color: crimson;
+   --border-color: darkred;
    --background-color: rgba(0, 0, 0, 0.85);
    --highlight-background-color: rgba(64, 64, 64, 0.85);
    --disable-background-color: grey;
@@ -82,13 +82,13 @@ h4 {
 }
 img[alt="CAPTCHA"] {
    filter: contrast(1.25) invert(1);
-   border: 1px solid rgba(255, 119, 255, 0.85); /* Magenta tonu */
+   border: 1px solid rgba(116, 255, 255, 0.85);
    border-radius: 10px;
 }
 .cvimg {
    border: 1px solid var(--border-color);
    border-radius: 100%;
-   background: radial-gradient(black, 45%, #ff00ff, 70%, #8b008b); /* Magenta gradienti */
+   background: radial-gradient(black, 45%, red, 70%, #8b0000);
    opacity: 0.5;
 }
 .chn,
@@ -191,7 +191,7 @@ a:hover {
 .Alert,
 .modal {
    background-color: #000;
-   background-image: url("https://c4.wallpaperflare.com/wallpaper/184/515/626/digital-digital-art-artwork-illustration-drawing-hd-wallpaper-preview.jpg");
+   background-image: url("https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-ff1c-620a-b32c-ad4e5cdef0c5/raw?se=2025-07-09T09%3A31%3A38Z&sp=r&sv=2024-08-04&sr=b&scid=2675910b-5fda-527e-b7fc-990bc5155936&skoid=76024c37-11e2-4c92-aa07-7e519fbe2d0f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-09T08%3A13%3A10Z&ske=2025-07-10T08%3A13%3A10Z&sks=b&skv=2024-08-04&sig=wLBdYJxNpgF6vaH1BehIHHpevhU4Cpr2d/Trmw1zNqQ%3D");
    background-repeat-x: repeat;
    background-repeat-y: no-repeat;
    background-size: cover;
@@ -235,7 +235,7 @@ a:hover {
    color: #f3f3f3;
 }
 .msg.info {
-   color: #ff91f3; /* Magenta tonu */
+   color: #ff91a6;
 }
 .msg.event {
    color: #9dc8ff;
@@ -270,7 +270,7 @@ a:hover {
    background: grey;
 }
 body {
-  background: linear-gradient(135deg, #1a001a 0%, #3a1c3a 60%, #471a47 100%) fixed;
+  background: linear-gradient(135deg, #1a0000 0%, #3a1c2d 60%, #2e1a47 100%) fixed;
   min-height: 100vh;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   color: var(--main-color);
@@ -283,8 +283,8 @@ body::after {
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -2;
   pointer-events: none;
-  background: radial-gradient(circle at 70% 20%, rgba(255,0,255,0.10) 0, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(255,0,255,0.08) 0, transparent 60%);
+  background: radial-gradient(circle at 70% 20%, rgba(255,40,40,0.10) 0, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(255,40,40,0.08) 0, transparent 60%);
   filter: blur(18px) brightness(1.08);
   opacity: 0.8;
 }
