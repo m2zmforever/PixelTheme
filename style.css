@@ -1,4 +1,4 @@
-/* --- DAHA ŞIK VE MODERN TASARIM İYİLEŞTİRMELERİ --- */
+/* Modern ve şık bir görünüm için eklemeler */
 :root {
   --main-color: #ff3b3b;
   --title-color: #ff5e62;
@@ -13,39 +13,22 @@
   --frosted-glass: rgba(40,40,60,0.55);
   --accent-glow: 0 0 32px 0 #ff3b3b44;
 }
-body, .window, .modal, .popup, .contextmenu, .channeldd {
+body {
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  letter-spacing: 0.01em;
-  font-size: 15px;
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat fixed, linear-gradient(120deg, #f8f8fa 0%, #e3e6f3 100%);
+  background: linear-gradient(120deg, #23243a 0%, #3a1c2d 100%) fixed;
   min-height: 100vh;
   position: relative;
-  backdrop-filter: blur(12px) saturate(1.4);
-  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.45);
-  border-radius: 18px;
-  border: 1.5px solid rgba(255,255,255,0.06);
 }
-
-/* Arka plana hareketli bir parıltı efekti ekle */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
-  background: inherit;
-  filter: blur(12px) brightness(1.08) saturate(1.2);
+  background: radial-gradient(circle at 80% 20%, rgba(255,56,120,0.13) 0, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(120,200,255,0.10) 0, transparent 60%);
+  filter: blur(8px) brightness(1.08);
   opacity: 0.7;
 }
-
-/* Kart ve modal kutulara cam efekti ve yumuşak gölge */
-.modal, .popup, .window, .contextmenu, .channeldd {
-  background: rgba(10, 10, 15, 0.92);
-  box-shadow: 0 0 32px 8px #ff3b3b33, 0 8px 32px 0 #000a;
-  border-radius: 18px;
-  border: 1.5px solid rgba(255,255,255,0.10);
-  backdrop-filter: blur(8px) saturate(1.2);
-}
-
 .actionbuttons,
 .channelbtn,
 .tab-list-item,
@@ -76,6 +59,18 @@ select:hover {
   transform: scale(0.98);
   filter: brightness(0.93);
 }
+.modal, .popup, .window, .contextmenu, .channeldd {
+  background: var(--frosted-glass);
+  box-shadow: 0 8px 32px 0 #000a, 0 0 0 1.5px #fff1;
+  border-radius: 18px;
+  border: 1.5px solid rgba(255,255,255,0.10);
+  backdrop-filter: blur(16px) saturate(1.5);
+}
+h2, h3, h4 {
+  text-shadow: 0 2px 12px var(--shadow-color), 0 0 8px #ff3b3b22;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
 ::-webkit-scrollbar {
   width: 12px;
   background: transparent;
@@ -90,66 +85,225 @@ select:hover {
   background: linear-gradient(135deg, #555 60%, #ff8a65 100%);
   box-shadow: 0 0 16px #ff8a6555;
 }
-h2, h3, h4 {
-  text-shadow: 0 2px 12px var(--shadow-color), 0 0 8px #ff3b3b22;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-.Alert {
-  box-shadow: 0 4px 32px var(--main-color), 0 2px 0 var(--border-color), 0 0 32px 0 #ff3b3b44;
-  border-radius: 16px;
-  border: 1.5px solid var(--main-color);
-}
-/* Hafif parıltı efekti */
 .mention, .chatlink, .modallink:hover, .tab-list-item.active, a:hover {
   text-shadow: 0 0 12px var(--highlight-color), 0 0 2px #fff;
   filter: brightness(1.15);
 }
-/* Kayan neon border animasyonu */
-@keyframes neon-border {
-  0% { box-shadow: 0 0 8px 0 #ff3b3b44, 0 0 0 #ff8a65; }
-  100% { box-shadow: 0 0 24px 4px #ff8a65, 0 0 0 #ff3b3b44; }
+.actionbuttons,
+.modal {
+   border-radius: 21px;
 }
-.actionbuttons, .channelbtn, .tab-list-item.active, button:focus {
-  animation: neon-border 2.5s alternate infinite;
-}
-/* Kayan gradientli başlık efekti */
-h1, h2, h3, h4 {
-  background: linear-gradient(90deg, #ff3b3b, #ff8a65, #5e72eb, #ff3b3b);
-  background-size: 200% auto;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: gradient-move 6s linear infinite;
-}
-@keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
-}
-/* Cam efekti ve modern border-radius'lar için eski kodları güncelle */
-.Alert,
-.modal,
-.popup,
-.window,
-.contextmenu,
-.channeldd {
-  border-radius: 18px;
-  border: 1.5px solid rgba(255,255,255,0.10);
-  box-shadow: 0 8px 32px 0 #000a, 0 0 0 1.5px #fff1;
-  backdrop-filter: blur(16px) saturate(1.5);
-}
-/* Standart box-shadow ekle (uyumluluk için) */
 kbd {
-  border-color: var(--border-color);
-  -webkit-box-shadow: none;
-  box-shadow: none;
+   border-color: var(--border-color);
+   -webkit-box-shadow: none;
 }
-/* background-repeat-x ve y yerine background-repeat kullan */
+.chatts {
+   color: var(--important-color);
+}
+h2,
+h3,
+h4 {
+   color: var(--title-color);
+}
+.Alert,
+.channeldd,
+.contextmenu,
+.modal,
+.modal-topbtn,
+.modalinfo,
+.modallink,
+.popup,
+.tab-list-item,
+.win-topbar,
+.window,
+a,
+a:link,
+a:visited,
+button,
+input,
+select {
+   color: var(--main-color);
+}
+h3 {
+   margin: 6px;
+}
+h4 {
+   margin: 4px;
+}
+img[alt="CAPTCHA"] {
+   filter: contrast(1.25) invert(1);
+   border: 1px solid rgba(116, 255, 255, 0.85);
+   border-radius: 10px;
+}
+.cvimg {
+   border: 1px solid var(--border-color);
+   border-radius: 100%;
+   background: radial-gradient(black, 45%, red, 70%, #8b0000);
+   opacity: 0.5;
+}
+.chn,
+.chntype,
+.contextmenu > div,
+.react-toggle-track,
+button,
+input,
+select {
+   background-color: var(--background-color);
+}
+button,
+input,
+select {
+   border-style: solid;
+   border-width: 1px;
+   border-image: linear-gradient(
+         to right top,
+         var(--main-color) 0%,
+         var(--main-color) 15%,
+         transparent 50%
+      )
+      1;
+}
+button {
+   background-image: linear-gradient(
+      to right top,
+      var(--second-color) 0,
+      transparent 75%
+   );
+   cursor: pointer;
+}
+.react-toggle--checked .react-toggle-track {
+   background-color: var(--highlight-color);
+}
+.mention,
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+   background-color: var(--important-color);
+}
+hr {
+   border-color: var(--second-color);
+   margin: 5px 0;
+}
+a,
+a:link {
+   font-weight: 700;
+}
+.modallink:hover,
+.tab-list-item.active,
+a:hover {
+   color: var(--highlight-color);
+}
+.inarea {
+   border-color: #d5d5d5;
+}
+.modal-topbtn,
+.win-topbtn,
+.window {
+   border-color: var(--border-color);
+}
+.tab-list-item {
+   background-color: transparent;
+}
+.channeldd,
+.contextmenu,
+.menu > div,
+.modal-topbtn,
+.popup,
+.win-topbtn,
+.window {
+   background-color: var(--background-color);
+}
+.tab-list-item.active {
+   background-color: var(--highlight-background-color);
+}
+.window {
+   border-radius: 5px;
+}
+.win-title {
+   border: var(--border-color);
+}
+.channeldd,
+.contextmenu {
+   border-radius: 8px;
+}
+.chntop {
+   margin-top: 4px;
+}
+#historyselect,
+.cooldownbox,
+.coorbox,
+.onlinebox {
+   background-color: var(--background-color);
+   color: var(--main-color);
+   border-radius: 21px;
+}
+.menu > div {
+   z-index: 1;
+}
 .Alert,
 .modal {
-  background-color: #000;
-  background-image: url("https://i.imgur.com/yxyjWbb.png");
-  background-repeat: repeat no-repeat;
-  background-size: cover;
-  border: 1px solid #000;
+   background-color: #000;
+   background-image: url("https://i.imgur.com/yxyjWbb.png");
+   background-repeat-x: repeat;
+   background-repeat-y: no-repeat;
+   background-size: cover;
+   border: 1px solid #000;
+}
+.Alert {
+   border-radius: 12px;
+}
+.modal-content,
+.popup-content,
+.win-content {
+   color: #f4f4f4;
+}
+.modalcvtext,
+.modaldesc {
+   color: hsla(220, 100%, 95.3%, 0.6);
+}
+.modaldivider {
+   background-color: hsla(216, 4%, 74%, 0.3);
+}
+.overlay {
+   opacity: 1;
+   background: radial-gradient(transparent, #000);
+   animation-name: black-circle;
+   animation-duration: 0.5s;
+}
+@keyframes black-circle {
+   0% {
+      opacity: 0;
+      background: 0 0;
+   }
+   100% {
+      opacity: 1;
+      background: radial-gradient(transparent, #000);
+   }
+}
+.chatname {
+   background-color: transparent;
+}
+.msg {
+   color: #f3f3f3;
+}
+.msg.info {
+   color: #ff91a6;
+}
+.msg.event {
+   color: #9dc8ff;
+}
+.msg.greentext {
+   color: #94ff94;
+}
+.ebex {
+   color: #fff4bd;
+}
+.chatlink {
+   color: var(--important-color);
+}
+.statvalue {
+   color: #ecc9ff;
+}
+.actionbuttons:hover,
+.coorbox:hover,
+.menu > div:hover {
+   background-color: #363637;
 }
