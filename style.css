@@ -14,11 +14,11 @@ th {
    text-shadow: 0 0 1px #000;
 }
 :root {
-   --main-color: red;
-   --title-color: crimson;
-   --important-color: crimson;
-   --highlight-color: crimson;
-   --border-color: darkred;
+   --main-color: #ff00ff; /* MAGENTA */
+   --title-color: #cc00cc; /* Koyu Magenta */
+   --important-color: #cc00cc; /* Koyu Magenta */
+   --highlight-color: #cc00cc; /* Koyu Magenta */
+   --border-color: #8b008b; /* Koyu Magenta */
    --background-color: rgba(0, 0, 0, 0.85);
    --highlight-background-color: rgba(64, 64, 64, 0.85);
    --disable-background-color: grey;
@@ -82,13 +82,13 @@ h4 {
 }
 img[alt="CAPTCHA"] {
    filter: contrast(1.25) invert(1);
-   border: 1px solid rgba(116, 255, 255, 0.85);
+   border: 1px solid rgba(255, 119, 255, 0.85); /* Magenta tonu */
    border-radius: 10px;
 }
 .cvimg {
    border: 1px solid var(--border-color);
    border-radius: 100%;
-   background: radial-gradient(black, 45%, red, 70%, #8b0000);
+   background: radial-gradient(black, 45%, #ff00ff, 70%, #8b008b); /* Magenta gradienti */
    opacity: 0.5;
 }
 .chn,
@@ -235,7 +235,7 @@ a:hover {
    color: #f3f3f3;
 }
 .msg.info {
-   color: #ff91a6;
+   color: #ff91f3; /* Magenta tonu */
 }
 .msg.event {
    color: #9dc8ff;
@@ -270,7 +270,7 @@ a:hover {
    background: grey;
 }
 body {
-  background: linear-gradient(135deg, #1a0000 0%, #3a1c2d 60%, #2e1a47 100%) fixed;
+  background: linear-gradient(135deg, #1a001a 0%, #3a1c3a 60%, #471a47 100%) fixed;
   min-height: 100vh;
   font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   color: var(--main-color);
@@ -283,8 +283,8 @@ body::after {
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -2;
   pointer-events: none;
-  background: radial-gradient(circle at 70% 20%, rgba(255,40,40,0.10) 0, transparent 60%),
-              radial-gradient(circle at 20% 80%, rgba(255,40,40,0.08) 0, transparent 60%);
+  background: radial-gradient(circle at 70% 20%, rgba(255,0,255,0.10) 0, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(255,0,255,0.08) 0, transparent 60%);
   filter: blur(18px) brightness(1.08);
   opacity: 0.8;
 }
