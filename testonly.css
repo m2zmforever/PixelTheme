@@ -24,7 +24,7 @@ th {
 /* Hareketli arkaplan için animasyon */
 @keyframes moveBackground {
   0% { background-position: 0% 0%; }
-  100% { background-position: 100% 100%; }
+  100% { background-position: % 100%; }
 }
 body {
   background: 
@@ -415,4 +415,36 @@ a:hover {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #e60000;
+}
+
+/* KOORDİNAT KUTUSU TAŞIMA VE KÜÇÜLTME */
+.coorbox {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 300px;
+  padding: 5px 15px;
+  font-size: 12px;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  animation: coorPulse 2s infinite;
+}
+
+@keyframes coorPulse {
+  0% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+  50% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+}
+
+/* Mobil uyumluluk */
+@media (max-width: 768px) {
+  .coorbox {
+    bottom: 5px;
+    font-size: 10px;
+    padding: 3px 10px;
+    max-width: 200px;
+  }
 }
