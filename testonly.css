@@ -8,14 +8,31 @@ th {
   background-color: var(--background-color);
 }
 :root {
-  --main-color: #ff4d4d;       /* Kırmızı */
-  --title-color: #ff1a1a;      /* Parlak Kırmızı */
-  --important-color: #e60000;  /* Koyu Kırmızı */
-  --highlight-color: #ff3333;  /* Canlı Kırmızı */
-  --border-color: #b30000;     /* Koyu Kırmızı */
+  --main-color: #ff4d4d;
+  --title-color: #ff1a1a;
+  --important-color: #e60000;
+  --highlight-color: #ff3333;
+  --border-color: #b30000;
   --background-color: rgba(0, 0, 0, 0.85);
-  --highlight-background-color: rgba(70, 0, 0, 0.85); /* Kırmızımsı Siyah */
+  --highlight-background-color: rgba(70, 0, 0, 0.85);
   --disable-background-color: #5a5a5a;
+  
+  /* Animasyonlu daire için değişkenler */
+  --pulse-color: rgba(255, 77, 77, 0.6);
+  --pulse-size: 12px;
+}
+/* Hareketli arkaplan için animasyon */
+@keyframes moveBackground {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+body {
+  background: 
+    radial-gradient(circle at 10% 20%, rgba(179, 0, 0, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(179, 0, 0, 0.1) 0%, transparent 20%),
+    linear-gradient(45deg, #0a0000, #1a0000, #0a0000, #1a0000);
+  background-size: 400% 400%;
+  animation: moveBackground 20s linear infinite;
 }
 .channelbtn:hover,
 .chatmsg:hover,
@@ -32,10 +49,17 @@ th {
 .win-topbtn:hover,
 tr:nth-child(2n) {
   background-color: var(--highlight-background-color);
+  transition: background-color 0.3s ease;
 }
 .actionbuttons,
 .modal {
   border-radius: 21px;
+  /* Modal için animasyon */
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 kbd {
   border-color: var(--border-color);
@@ -47,6 +71,12 @@ h2,
 h3,
 h4 {
   color: var(--title-color);
+  text-shadow: 0 0 8px rgba(255, 26, 26, 0.5);
+  animation: textGlow 2s infinite alternate;
+}
+@keyframes textGlow {
+  from { text-shadow: 0 0 8px rgba(255, 26, 26, 0.5); }
+  to { text-shadow: 0 0 12px rgba(255, 77, 77, 0.8); }
 }
 .Alert,
 .channeldd,
@@ -75,14 +105,23 @@ h4 {
 }
 img[alt="CAPTCHA"] {
   filter: contrast(1.25) invert(1);
-  border: 1px solid rgba(255, 77, 77, 0.85); /* Kırmızı */
+  border: 1px solid rgba(255, 77, 77, 0.85);
   border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+img[alt="CAPTCHA"]:hover {
+  transform: scale(1.02);
 }
 .cvimg {
   border: 1px solid var(--border-color);
   border-radius: 100%;
-  background: radial-gradient(black, 45%, #e60000, 70%, #b30000); /* Kırmızı geçiş */
+  background: radial-gradient(black, 45%, #e60000, 70%, #b30000);
   opacity: 0.5;
+  animation: rotate 20s linear infinite;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 .chn,
 .chntype,
@@ -105,6 +144,7 @@ select {
       transparent 50%
     )
     1;
+  transition: all 0.3s ease;
 }
 button {
   background-image: linear-gradient(
@@ -113,6 +153,27 @@ button {
     transparent 75%
   );
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 77, 77, 0.3), transparent);
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+@keyframes shine {
+  0% { transform: rotate(45deg) translateX(-200%); }
+  100% { transform: rotate(45deg) translateX(200%); }
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.3);
 }
 .react-toggle--checked .react-toggle-track {
   background-color: var(--highlight-color);
@@ -124,10 +185,30 @@ button {
 hr {
   border-color: var(--second-color);
   margin: 5px 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { border-color: var(--second-color); }
+  50% { border-color: var(--highlight-color); }
+  100% { border-color: var(--second-color); }
 }
 a,
 a:link {
   font-weight: 700;
+  position: relative;
+}
+a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--highlight-color);
+  transition: width 0.3s ease;
+}
+a:hover::after {
+  width: 100%;
 }
 .modallink:hover,
 .tab-list-item.active,
@@ -144,6 +225,10 @@ a:hover {
 }
 .tab-list-item {
   background-color: transparent;
+  transition: all 0.3s ease;
+}
+.tab-list-item:hover {
+  transform: translateX(5px);
 }
 .channeldd,
 .contextmenu,
@@ -153,12 +238,24 @@ a:hover {
 .win-topbtn,
 .window {
   background-color: var(--background-color);
+  box-shadow: 0 0 20px rgba(179, 0, 0, 0.3);
 }
 .tab-list-item.active {
   background-color: var(--highlight-background-color);
+  animation: activeTab 1.5s infinite alternate;
+}
+@keyframes activeTab {
+  from { background-color: var(--highlight-background-color); }
+  to { background-color: rgba(90, 0, 0, 0.85); }
 }
 .window {
   border-radius: 5px;
+  animation: float 4s infinite ease-in-out;
+}
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
 }
 .win-title {
   border: var(--border-color);
@@ -177,19 +274,55 @@ a:hover {
   background-color: var(--background-color);
   color: var(--main-color);
   border-radius: 21px;
+  position: relative;
+  overflow: hidden;
+}
+/* Çevrimiçi oyuncular için animasyonlu kırmızı daire */
+.onlinebox::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: var(--pulse-size);
+  height: var(--pulse-size);
+  background-color: var(--main-color);
+  border-radius: 50%;
+  animation: pulseCircle 1.5s infinite;
+  box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+}
+@keyframes pulseCircle {
+  0% {
+    transform: translateY(-50%) scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 77, 77, 0.7);
+  }
+  70% {
+    transform: translateY(-50%) scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 77, 77, 0);
+  }
+  100% {
+    transform: translateY(-50%) scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 77, 77, 0);
+  }
 }
 .menu > div {
   z-index: 1;
 }
 .Alert,
 .modal {
-  background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #4d0000 100%); /* Kırmızı geçişli */
+  background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #4d0000 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
   border: 1px solid #000;
 }
 .Alert {
   border-radius: 12px;
+  animation: alertPulse 2s infinite;
+}
+@keyframes alertPulse {
+  0% { box-shadow: 0 0 5px rgba(255, 77, 77, 0.5); }
+  50% { box-shadow: 0 0 20px rgba(255, 77, 77, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(255, 77, 77, 0.5); }
 }
 .modal-content,
 .popup-content,
@@ -198,14 +331,18 @@ a:hover {
 }
 .modalcvtext,
 .modaldesc {
-  color: hsla(0, 100%, 85%, 0.8); /* Açık kırmızı */
+  color: hsla(0, 100%, 85%, 0.8);
+  animation: textFlow 5s infinite linear;
+}
+@keyframes textFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
 .modaldivider {
-  background-color: hsla(0, 50%, 40%, 0.4); /* Kırmızı */
+  background-color: hsla(0, 50%, 40%, 0.4);
 }
-/* GÖLGE SORUNU ÇÖZÜMÜ */
 .overlay {
-  display: none; /* Gölge efektini tamamen kaldır */
+  display: none;
 }
 @keyframes black-circle {
   0% {
@@ -219,32 +356,47 @@ a:hover {
 }
 .chatname {
   background-color: transparent;
+  animation: colorShift 4s infinite alternate;
+}
+@keyframes colorShift {
+  from { color: var(--main-color); }
+  to { color: var(--highlight-color); }
 }
 .msg {
   color: #f3f3f3;
+  transition: all 0.3s ease;
+}
+.msg:hover {
+  transform: translateX(5px);
 }
 .msg.info {
-  color: #ffb3b3; /* Açık kırmızı */
+  color: #ffb3b3;
 }
 .msg.event {
-  color: #ff4d4d; /* Orta kırmızı */
+  color: #ff4d4d;
 }
 .msg.greentext {
-  color: #ff1a1a; /* Koyu kırmızı */
+  color: #ff1a1a;
 }
 .ebex {
-  color: #ffb3b3; /* Açık kırmızı */
+  color: #ffb3b3;
 }
 .chatlink {
   color: var(--important-color);
 }
 .statvalue {
-  color: #ffb3b3; /* Açık kırmızı */
+  color: #ffb3b3;
+  animation: countUp 1s ease;
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .actionbuttons:hover,
 .coorbox:hover,
 .menu > div:hover {
-  background-color: #330000; /* Koyu kırmızı */
+  background-color: #330000;
+  transform: scale(1.02);
 }
 ::-webkit-scrollbar {
   cursor: pointer;
@@ -253,8 +405,14 @@ a:hover {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #b30000; /* Koyu kırmızı */
+  background: #b30000;
+  animation: scrollPulse 2s infinite;
+}
+@keyframes scrollPulse {
+  0% { background: #b30000; }
+  50% { background: #ff3333; }
+  100% { background: #b30000; }
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e60000; /* Orta kırmızı */
+  background: #e60000;
 }
