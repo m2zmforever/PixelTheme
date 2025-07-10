@@ -17,14 +17,12 @@ th {
   --highlight-background-color: rgba(70, 0, 0, 0.85);
   --disable-background-color: #5a5a5a;
   
-  /* Animasyonlu daire için değişkenler */
   --pulse-color: rgba(255, 77, 77, 0.6);
   --pulse-size: 12px;
 }
-/* Hareketli arkaplan için animasyon */
 @keyframes moveBackground {
   0% { background-position: 0% 0%; }
-  100% { background-position: % 100%; }
+  100% { background-position: 100% 100%; }
 }
 body {
   background: 
@@ -54,7 +52,6 @@ tr:nth-child(2n) {
 .actionbuttons,
 .modal {
   border-radius: 21px;
-  /* Modal için animasyon */
   animation: fadeIn 0.4s ease;
 }
 @keyframes fadeIn {
@@ -248,14 +245,20 @@ a:hover {
   from { background-color: var(--highlight-background-color); }
   to { background-color: rgba(90, 0, 0, 0.85); }
 }
+/* PENCERELERİN ORTALANMASI */
 .window {
   border-radius: 5px;
   animation: float 4s infinite ease-in-out;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
 }
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, calc(-50% - 5px)); }
+  100% { transform: translate(-50%, -50%); }
 }
 .win-title {
   border: var(--border-color);
@@ -277,7 +280,6 @@ a:hover {
   position: relative;
   overflow: hidden;
 }
-/* Çevrimiçi oyuncular için animasyonlu kırmızı daire */
 .onlinebox::before {
   content: '';
   position: absolute;
@@ -314,6 +316,12 @@ a:hover {
   background-repeat: no-repeat;
   background-attachment: fixed;
   border: 1px solid #000;
+  /* Modal için de ortalamayı ekliyoruz */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1002;
 }
 .Alert {
   border-radius: 12px;
@@ -420,7 +428,7 @@ a:hover {
 /* KOORDİNAT KUTUSU TAŞIMA VE KÜÇÜLTME */
 .coorbox {
   position: fixed;
-  bottom: 10px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: auto;
@@ -431,18 +439,29 @@ a:hover {
   z-index: 1000;
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
   animation: coorPulse 2s infinite;
+  background: linear-gradient(to right, rgba(70, 0, 0, 0.7), rgba(90, 0, 0, 0.7));
+  border: 1px solid var(--border-color);
 }
 
 @keyframes coorPulse {
-  0% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
-  50% { box-shadow: 0 0 15px rgba(255, 0, 0, 0.8); }
-  100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); }
+  0% { 
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    transform: translateX(-50%) scale(0.98);
+  }
+  50% { 
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    transform: translateX(-50%) scale(1.02);
+  }
+  100% { 
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    transform: translateX(-50%) scale(0.98);
+  }
 }
 
 /* Mobil uyumluluk */
 @media (max-width: 768px) {
   .coorbox {
-    bottom: 5px;
+    bottom: 10px;
     font-size: 10px;
     padding: 3px 10px;
     max-width: 200px;
