@@ -203,11 +203,9 @@ a:hover {
 .modaldivider {
   background-color: hsla(0, 50%, 40%, 0.4); /* Kırmızı */
 }
+/* GÖLGE SORUNU ÇÖZÜMÜ */
 .overlay {
-  opacity: 1;
-  background: radial-gradient(transparent, #000);
-  animation-name: black-circle;
-  animation-duration: 0.5s;
+  display: none; /* Gölge efektini tamamen kaldır */
 }
 @keyframes black-circle {
   0% {
