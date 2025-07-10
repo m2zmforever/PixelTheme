@@ -7,12 +7,6 @@ th {
   color: var(--main-color);
   background-color: var(--background-color);
 }
-.Alert,
-.chatlink,
-.chatname,
-.modal * {
-  text-shadow: 0 0 1px #000;
-}
 :root {
   --main-color: #ff4d4d;       /* Kırmızı */
   --title-color: #ff1a1a;      /* Parlak Kırmızı */
@@ -45,7 +39,6 @@ tr:nth-child(2n) {
 }
 kbd {
   border-color: var(--border-color);
-  -webkit-box-shadow: none;
 }
 .chatts {
   color: var(--important-color);
