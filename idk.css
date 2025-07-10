@@ -1,0 +1,73 @@
+/* YENİ EKLENEN GELİŞTİRMELER (MEVCUT KODUN SONUNA EKLENDİ) */
+
+/* Butonlara gradient hover efekti */
+button:hover {
+  background-image: linear-gradient(
+    to right top,
+    var(--highlight-color) 0%,
+    transparent 100%
+  ) !important;
+}
+
+/* Input focus efekti */
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 5px var(--main-color);
+  outline: 2px solid var(--highlight-color);
+}
+
+/* Aktif elementler için neon efekti */
+.tab-list-item.active, .chn.selected, .chntype.selected {
+  box-shadow: 0 0 8px var(--main-color), 
+              inset 0 0 4px rgba(255,255,255,0.3);
+}
+
+/* Scrollbar daha belirgin hale getirildi */
+::-webkit-scrollbar-thumb {
+  border: 1px solid var(--title-color);
+  box-shadow: inset 0 0 4px #000;
+}
+
+/* Açılır menü animasyonu */
+.contextmenu, .channeldd, .popup {
+  animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mesaj balonları için gradient arkaplan */
+.chatmsg {
+  background: linear-gradient(
+    to right, 
+    transparent 0%, 
+    var(--background-color) 30%,
+    var(--highlight-background-color) 100%
+  ) !important;
+  border-left: 2px solid var(--border-color);
+}
+
+/* Kapak resmi için parıltı efekti */
+.cvimg:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 15px var(--main-color);
+  transition: all 0.5s ease;
+}
+
+/* Butonlara tıklanma efekti */
+button:active {
+  transform: translateY(2px);
+  filter: brightness(0.9);
+}
+
+/* Modal için derinlik efekti */
+.modal {
+  box-shadow: 0 0 30px rgba(123, 44, 191, 0.7), 
+              0 0 60px rgba(90, 24, 154, 0.5);
+}
+
+/* Kayan çubuklar için Firefox desteği */
+html {
+  scrollbar-color: var(--border-color) var(--background-color);
+  scrollbar-width: thin;
+}
