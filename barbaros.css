@@ -1,3 +1,30 @@
+/* FORCE REMOVE ALL BLACK AND DARK COLORS */
+* {
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+*:not(img):not(svg) {
+  background-color: var(--background-color) !important;
+  color: var(--main-color) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Specific overrides for form elements */
+input, select, textarea, button {
+  background-color: var(--background-color) !important;
+  color: var(--main-color) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Override any remaining dark backgrounds */
+div, span, p, h1, h2, h3, h4, h5, h6 {
+  background-color: transparent !important;
+  color: var(--main-color) !important;
+}
+
 .actionbuttons,
 .channelbtn,
 .tab-list-item,
@@ -16,15 +43,15 @@ th {
 }
 
 :root {
-  --main-color: #74b8d4; /* Light blue main color */
-  --title-color: #6da5c7; /* Light blue title color */
-  --important-color: #6a95b8; /* Light blue important color */
-  --highlight-color: #7fc9dd; /* Light blue highlight color */
-  --border-color: #557a8b; /* Darker blue border */
-  --background-color: rgba(255, 255, 255, 0.85);
-  --highlight-background-color: rgba(200, 200, 200, 0.85);
-  --disable-background-color: grey;
-  --second-color: #6388a6; /* Secondary light blue color */
+  --main-color: #74b8d4 !important; /* Light blue main color */
+  --title-color: #6da5c7 !important; /* Light blue title color */
+  --important-color: #6a95b8 !important; /* Light blue important color */
+  --highlight-color: #7fc9dd !important; /* Light blue highlight color */
+  --border-color: #557a8b !important; /* Darker blue border */
+  --background-color: rgba(255, 255, 255, 0.95) !important;
+  --highlight-background-color: rgba(220, 240, 255, 0.95) !important;
+  --disable-background-color: #cccccc !important;
+  --second-color: #6388a6 !important; /* Secondary light blue color */
 }
 
 .channelbtn:hover,
