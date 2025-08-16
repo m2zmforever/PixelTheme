@@ -1,19 +1,3 @@
-.actionbuttons,
-.channelbtn,
-.tab-list-item,
-kbd,
-td,
-th {
-  color: var(--main-color);
-  background-color: var(--background-color);
-}
-
-.Alert,
-.chatlink,
-.chatname,
-.modal * {
-}
-
 :root {
   --main-color: #74b8d4; /* Light blue main color */
   --title-color: #6da5c7; /* Light blue title color */
@@ -24,6 +8,44 @@ th {
   --highlight-background-color: rgba(64, 64, 64, 0.85);
   --disable-background-color: grey;
   --second-color: #6388a6; /* Secondary light blue color */
+}
+
+.actionbuttons,
+.channelbtn,
+.tab-list-item,
+kbd,
+td,
+th,
+.chn,
+.chntype,
+.contextmenu > div,
+.react-toggle-track,
+button,
+input,
+select,
+.channeldd,
+.contextmenu,
+.menu > div,
+.modal-topbtn,
+.popup,
+.win-topbtn,
+.window,
+#historyselect,
+.cooldownbox,
+.coorbox,
+.onlinebox {
+  color: var(--main-color);
+  background-color: var(--background-color);
+}
+
+.Alert,
+.modal {
+  background-color: #000;
+  background-image: url("https://i.ibb.co/j9Dndmz6/a-88d99152eb2afe6fcda98679b5bc458f.gif");
+  background-repeat-x: repeat;
+  background-repeat-y: no-repeat;
+  background-size: cover;
+  border: 1px solid #000;
 }
 
 .channelbtn:hover,
@@ -39,7 +61,8 @@ th {
 .tab-list-item:not(.active):hover,
 .win-title:hover,
 .win-topbtn:hover,
-tr:nth-child(2n) {
+tr:nth-child(2n),
+.tab-list-item.active {
   background-color: var(--highlight-background-color);
 }
 
@@ -60,6 +83,14 @@ h2,
 h3,
 h4 {
   color: var(--title-color);
+}
+
+h3 {
+  margin: 6px;
+}
+
+h4 {
+  margin: 4px;
 }
 
 .Alert,
@@ -85,17 +116,9 @@ select {
   -moz-box-shadow: none;
 }
 
-h3 {
-  margin: 6px;
-}
-
-h4 {
-  margin: 4px;
-}
-
 img[alt="CAPTCHA"] {
   filter: contrast(1.25) invert(1);
-  border: 1px solid rgba(116, 184, 212, 0.85); /* Light blue CAPTCHA border */
+  border: 1px solid rgba(116, 184, 212, 0.85);
   border-radius: 10px;
 }
 
@@ -104,16 +127,6 @@ img[alt="CAPTCHA"] {
   border-radius: 100%;
   background: var(--main-color);
   opacity: 0.5;
-}
-
-.chn,
-.chntype,
-.contextmenu > div,
-.react-toggle-track,
-button,
-input,
-select {
-  background-color: var(--background-color);
 }
 
 button,
@@ -174,23 +187,8 @@ a:hover {
   background-color: transparent;
 }
 
-.channeldd,
-.contextmenu,
-.menu > div,
-.modal-topbtn,
-.popup,
-.win-topbtn,
-.window {
-  background-color: var(--background-color);
-}
-
-.tab-list-item.active {
-  background-color: var(--highlight-background-color);
-}
-
 .window {
   border-radius: 5px;
-  box-shadow: none;
 }
 
 .win-title {
@@ -210,23 +208,11 @@ a:hover {
 .cooldownbox,
 .coorbox,
 .onlinebox {
-  background-color: var(--background-color);
-  color: var(--main-color);
   border-radius: 21px;
 }
 
 .menu > div {
   z-index: 1;
-}
-
-.Alert,
-.modal {
-  background-color: #000;
-  background-image: url("https://i.ibb.co/j9Dndmz6/a-88d99152eb2afe6fcda98679b5bc458f.gif"); /* Updated background image */
-  background-repeat-x: repeat;
-  background-repeat-y: no-repeat;
-  background-size: cover;
-  border: 1px solid #000;
 }
 
 .Alert {
@@ -275,15 +261,15 @@ a:hover {
 }
 
 .msg.info {
-  color: #a7d4f4; /* Light blue info message */
+  color: #a7d4f4;
 }
 
 .msg.event {
-  color: #a5c7d4; /* Light blue event message */
+  color: #a5c7d4;
 }
 
 .msg.greentext {
-  color: #a3d5e8; /* Light blue green text */
+  color: #a3d5e8;
 }
 
 .ebex {
@@ -295,7 +281,7 @@ a:hover {
 }
 
 .statvalue {
-  color: #d0e4f0; /* Light blue stat value */
+  color: #d0e4f0;
 }
 
 .actionbuttons:hover,
