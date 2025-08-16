@@ -47,6 +47,7 @@ tr:nth-child(2n) {
 .actionbuttons,
 .modal {
   border-radius: 21px;
+  box-shadow: none; /* Removed modal shadows */
 }
 
 kbd {
@@ -81,6 +82,7 @@ button,
 input,
 select {
   color: var(--main-color);
+  box-shadow: none; /* Remove shadows around windows */
 }
 
 h3 {
@@ -112,6 +114,7 @@ button,
 input,
 select {
   background-color: var(--background-color);
+  box-shadow: none; /* Remove shadows */
 }
 
 button,
@@ -170,6 +173,7 @@ a:hover {
 .win-topbtn,
 .window {
   border-color: var(--border-color);
+  box-shadow: none; /* Remove shadows */
 }
 
 .tab-list-item {
@@ -184,6 +188,7 @@ a:hover {
 .win-topbtn,
 .window {
   background-color: var(--background-color);
+  box-shadow: none; /* Remove shadows */
 }
 
 .tab-list-item.active {
@@ -214,6 +219,7 @@ a:hover {
   background-color: var(--background-color);
   color: var(--main-color);
   border-radius: 21px;
+  box-shadow: none; /* Remove shadows */
 }
 
 .menu > div {
@@ -228,6 +234,7 @@ a:hover {
   background-repeat-y: no-repeat;
   background-size: cover;
   border: 1px solid #000;
+  box-shadow: none; /* Remove shadows */
 }
 
 .Alert {
