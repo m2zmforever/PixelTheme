@@ -12,7 +12,6 @@ th {
 .chatlink,
 .chatname,
 .modal * {
-  text-shadow: 0 0 1px #000;
 }
 
 :root {
@@ -51,7 +50,6 @@ tr:nth-child(2n) {
 
 kbd {
   border-color: var(--border-color);
-  -webkit-box-shadow: none;
 }
 
 .chatts {
@@ -101,7 +99,7 @@ img[alt="CAPTCHA"] {
 .cvimg {
   border: 1px solid var(--border-color);
   border-radius: 100%;
-  background: radial-gradient(black, 45%, #74b8d4, 70%, #557a8b); /* Light blue gradient */
+  background: var(--main-color);
   opacity: 0.5;
 }
 
@@ -130,11 +128,7 @@ select {
 }
 
 button {
-  background-image: linear-gradient(
-    to right top,
-    var(--second-color) 0,
-    transparent 75%
-  );
+  background-image: none;
   cursor: pointer;
 }
 
@@ -193,6 +187,7 @@ a:hover {
 
 .window {
   border-radius: 5px;
+  box-shadow: none;
 }
 
 .win-title {
@@ -252,7 +247,7 @@ a:hover {
 
 .overlay {
   opacity: 1;
-  background: radial-gradient(transparent, #000);
+  background: #000;
   animation-name: black-circle;
   animation-duration: 0.5s;
 }
@@ -260,11 +255,11 @@ a:hover {
 @keyframes black-circle {
   0% {
     opacity: 0;
-    background: 0 0;
+    background: transparent;
   }
   100% {
     opacity: 1;
-    background: radial-gradient(transparent, #000);
+    background: #000;
   }
 }
 
