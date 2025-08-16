@@ -6,6 +6,7 @@ td,
 th {
   color: var(--main-color);
   background-color: var(--background-color);
+  border: none;
 }
 
 .Alert,
@@ -117,6 +118,7 @@ button,
 input,
 select {
   background-color: var(--background-color);
+  border: 1px solid var(--border-color);
 }
 
 button,
@@ -191,6 +193,7 @@ a:hover {
 .win-topbtn,
 .window {
   background-color: var(--background-color);
+  border: 1px solid var(--border-color);
 }
 
 .tab-list-item.active {
@@ -222,6 +225,7 @@ a:hover {
   background-color: var(--background-color);
   color: var(--main-color);
   border-radius: 21px;
+  border: 1px solid var(--border-color);
 }
 
 .menu > div {
@@ -245,16 +249,17 @@ a:hover {
 .modal-content,
 .popup-content,
 .win-content {
-  color: #f4f4f4;
+  color: var(--main-color);
+  background-color: var(--background-color);
 }
 
 .modalcvtext,
 .modaldesc {
-  color: hsla(220, 100%, 95.3%, 0.6);
+  color: var(--main-color);
 }
 
 .modaldivider {
-  background-color: hsla(216, 4%, 74%, 0.3);
+  background-color: var(--border-color);
 }
 
 .overlay {
@@ -280,7 +285,7 @@ a:hover {
 }
 
 .msg {
-  color: #f3f3f3;
+  color: var(--main-color);
 }
 
 .msg.info {
