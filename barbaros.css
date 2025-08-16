@@ -80,6 +80,9 @@ button,
 input,
 select {
   color: var(--main-color);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
 }
 
 h3 {
