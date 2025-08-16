@@ -1,44 +1,329 @@
-/* Completely remove all shadows from all elements */
-*,
-*::before,
-*::after {
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
-    text-shadow: none !important;
-    filter: none !important; /* Removes drop-shadow filters */
+.actionbuttons,
+.channelbtn,
+.tab-list-item,
+kbd,
+td,
+th {
+  color: var(--main-color);
+  background-color: var(--background-color);
 }
 
-/* Specifically target form elements that might have shadows */
-input,
-textarea,
-select,
+.Alert,
+.chatlink,
+.chatname,
+.modal * {
+}
+
+:root {
+  --main-color: #74b8d4; /* Light blue main color */
+  --title-color: #6da5c7; /* Light blue title color */
+  --important-color: #6a95b8; /* Light blue important color */
+  --highlight-color: #7fc9dd; /* Light blue highlight color */
+  --border-color: #557a8b; /* Darker blue border */
+  --background-color: rgba(255, 255, 255, 0.85);
+  --highlight-background-color: rgba(200, 200, 200, 0.85);
+  --disable-background-color: grey;
+  --second-color: #6388a6; /* Secondary light blue color */
+}
+
+.channelbtn:hover,
+.chatmsg:hover,
+.chn.selected,
+.chn:hover,
+.chntype.selected,
+.chntype:hover,
+.contextmenu > div:hover,
+.coorbox:hover,
+.modal-topbtn:hover,
+.onlinebox:hover,
+.tab-list-item:not(.active):hover,
+.win-title:hover,
+.win-topbtn:hover,
+tr:nth-child(2n) {
+  background-color: var(--highlight-background-color);
+}
+
+.actionbuttons,
+.modal {
+  border-radius: 21px;
+}
+
+kbd {
+  border-color: var(--border-color);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.chatts {
+  color: var(--important-color);
+}
+
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+}
+
+.Alert,
+.channeldd,
+.contextmenu,
+.modal,
+.modal-topbtn,
+.modalinfo,
+.modallink,
+.popup,
+.tab-list-item,
+.win-topbar,
+.window,
+a,
+a:link,
+a:visited,
 button,
-a {
-    box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
+input,
+select {
+  color: var(--main-color);
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
 }
 
-/* Remove any inset shadows */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-textarea {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    box-shadow: none !important;
+h3 {
+  margin: 6px;
 }
 
-/* Remove focus shadows */
-*:focus {
-    outline: none;
-    box-shadow: none !important;
+h4 {
+  margin: 4px;
 }
 
-/* Remove any shadow effects from pseudo-elements */
-::selection {
-    text-shadow: none !important;
+img[alt="CAPTCHA"] {
+  filter: contrast(1.25) invert(1);
+  border: 1px solid rgba(116, 184, 212, 0.85); /* Light blue CAPTCHA border */
+  border-radius: 10px;
+}
+
+.cvimg {
+  border: 1px solid var(--border-color);
+  border-radius: 100%;
+  background: var(--main-color);
+  opacity: 0.5;
+}
+
+.chn,
+.chntype,
+.contextmenu > div,
+.react-toggle-track,
+button,
+input,
+select {
+  background-color: var(--background-color);
+}
+
+button,
+input,
+select {
+  border-style: solid;
+  border-width: 1px;
+  border-image: linear-gradient(
+      to right top,
+      var(--main-color) 0%,
+      var(--main-color) 15%,
+      transparent 50%
+    )
+    1;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+button {
+  background-image: none;
+  cursor: pointer;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.react-toggle--checked .react-toggle-track {
+  background-color: var(--highlight-color);
+}
+
+.mention,
+.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+  background-color: var(--important-color);
+}
+
+hr {
+  border-color: var(--second-color);
+  margin: 5px 0;
+}
+
+a,
+a:link {
+  font-weight: 700;
+}
+
+.modallink:hover,
+.tab-list-item.active,
+a:hover {
+  color: var(--highlight-color);
+}
+
+.inarea {
+  border-color: #d5d5d5;
+}
+
+.modal-topbtn,
+.win-topbtn,
+.window {
+  border-color: var(--border-color);
+}
+
+.tab-list-item {
+  background-color: transparent;
+}
+
+.channeldd,
+.contextmenu,
+.menu > div,
+.modal-topbtn,
+.popup,
+.win-topbtn,
+.window {
+  background-color: var(--background-color);
+}
+
+.tab-list-item.active {
+  background-color: var(--highlight-background-color);
+}
+
+.window {
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.win-title {
+  border: var(--border-color);
+}
+
+.channeldd,
+.contextmenu {
+  border-radius: 8px;
+}
+
+.chntop {
+  margin-top: 4px;
+}
+
+#historyselect,
+.cooldownbox,
+.coorbox,
+.onlinebox {
+  background-color: var(--background-color);
+  color: var(--main-color);
+  border-radius: 21px;
+}
+
+.menu > div {
+  z-index: 1;
+}
+
+.Alert,
+.modal {
+  background-color: var(--background-color);
+  background-image: url("https://i.ibb.co/j9Dndmz6/a-88d99152eb2afe6fcda98679b5bc458f.gif"); /* Updated background image */
+  background-repeat-x: repeat;
+  background-repeat-y: no-repeat;
+  background-size: cover;
+  border: 1px solid var(--border-color);
+}
+
+.Alert {
+  border-radius: 12px;
+}
+
+.modal-content,
+.popup-content,
+.win-content {
+  color: #f4f4f4;
+}
+
+.modalcvtext,
+.modaldesc {
+  color: hsla(220, 100%, 95.3%, 0.6);
+}
+
+.modaldivider {
+  background-color: hsla(216, 4%, 74%, 0.3);
+}
+
+.overlay {
+  opacity: 1;
+  background: var(--background-color);
+  animation-name: light-circle;
+  animation-duration: 0.5s;
+}
+
+@keyframes light-circle {
+  0% {
+    opacity: 0;
+    background: transparent;
+  }
+  100% {
+    opacity: 1;
+    background: var(--background-color);
+  }
+}
+
+.chatname {
+  background-color: transparent;
+}
+
+.msg {
+  color: #f3f3f3;
+}
+
+.msg.info {
+  color: #a7d4f4; /* Light blue info message */
+}
+
+.msg.event {
+  color: #a5c7d4; /* Light blue event message */
+}
+
+.msg.greentext {
+  color: #a3d5e8; /* Light blue green text */
+}
+
+.ebex {
+  color: #bdedff;
+}
+
+.chatlink {
+  color: var(--important-color);
+}
+
+.statvalue {
+  color: #d0e4f0; /* Light blue stat value */
+}
+
+.actionbuttons:hover,
+.coorbox:hover,
+.menu > div:hover {
+  background-color: var(--highlight-background-color);
+}
+
+::-webkit-scrollbar {
+  cursor: pointer;
+  width: 7.5px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--main-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--highlight-color);
 }
